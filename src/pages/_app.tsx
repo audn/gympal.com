@@ -1,4 +1,3 @@
-import { AppProps } from 'next/app';
 import '../assets/css/style.css';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
