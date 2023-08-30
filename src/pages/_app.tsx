@@ -6,7 +6,7 @@ import { DefaultSeo } from 'next-seo';
 import SEO from '../../next-seo.config';
 const queryClient = new QueryClient();
 
-export default function App({ Component, pageProps, router }: AppProps) {
+export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <DefaultSeo {...SEO} />
