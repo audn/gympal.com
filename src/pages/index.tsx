@@ -8,7 +8,7 @@ export default function Home() {
           <div className="px-4 py-1 border bg-[#121111] text-[17px] rounded-full inline-flex mb-8 border-white/10">
             Launching early 2024
           </div>
-          <h1 className="text-2xl md:text-4xl font-bold leading-[140%] ">
+          <h1 className="text-2xl md:text-4xl font-bold !leading-[140%]">
             The improved app to effortlessly switch between your diet
             preferences.
           </h1>
