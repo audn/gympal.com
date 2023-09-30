@@ -1,7 +1,7 @@
 import { NextSeoProps } from 'next-seo';
 
 export default {
-  title: 'GymPpal',
+  title: 'Gympal',
   description:
     'The improved app to effortlessly switch between your diet preferences.',
   openGraph: {
