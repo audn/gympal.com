@@ -1,47 +1,34 @@
-import { NextSeo } from 'next-seo';
-import { Button } from '../common/components/Buttons';
-import { Hydrate } from '../common/components/Hydrate';
-import H1 from '../common/components/layout/headings/H1';
-import Text from '../common/components/layout/headings/Text';
-import { DefaultLayout } from '../common/layouts/Default';
-import { useCats } from '../common/utils/hooks/cats';
+import Image from 'next/image';
 
 export default function Home() {
-  const {
-    data,
-    isLoading,
-    error: fetchError,
-    refetch,
-    isRefetching,
-  } = useCats();
   return (
-    <DefaultLayout>
-      <NextSeo />
-      <div className="flex flex-col items-center justify-center mx-auto mt-12 text-center md:mt-0 md:py-24 rounded-2xl md:bg-types-d100">
-        <H1 className="text-3xl md:text-6xl md:!leading-[5rem] text-transparent max-w-4xl bg-gradient-to-br from-brand-primary-100 to-brand-primary-150 bg-clip-text">
-          Boilerplate for building web applications with React
-        </H1>
-        <Text className="max-w-2xl mt-8">
-          <p>
-            React template with pre-made components and helpers. <br />
-            All components are built using TailwindCSS.
-          </p>
-          <p className="mt-5 font-semibold">No installations required.</p>
-        </Text>
-        <Button.Wrapper className="mt-10">
-          <Button.Secondary title="GitHub" icon="fa-brands fa-github" />
-        </Button.Wrapper>
-      </div>
+    <div className="min-h-screen relative bg-gradient-to-t from-types-50 to-types-100  flex flex-col items-center ">
+      <main className={'max-w-6xl px-4 xs:px-10 text-center'}>
+        <div className="max-w-3xl mx-auto pt-20">
+          <div className="px-4 py-1 border bg-[#121111] text-[17px] rounded-full inline-flex mb-8 border-white/10">
+            Launching early 2024
+          </div>
+          <h1 className="text-2xl md:text-4xl font-bold leading-[140%] ">
+            The improved app to effortlessly switch between your diet
+            preferences.
+          </h1>
+          <button className="px-4 py-1 mt-6 items-center inline-flex text-black font-bold bg-white rounded-full">
+            <a href="https://discord.gg/Q3dQj2Kqzm" target="_blank">
+              <i className="fa-brands fa-discord mr-2" /> Join Discord
+            </a>
+          </button>
 
-      <div className="mt-12">
-        <Hydrate.Cats
-          data={data}
-          error={fetchError}
-          isLoading={isLoading}
-          refetch={refetch}
-          isRefetching={isRefetching}
-        />
-      </div>
-    </DefaultLayout>
+          <div className="mt-16 justify-center items-center fixed md:-bottom-20 inset-x-0 mx-auto  md:w-[834px] h-[411px] sm:h-[611px]">
+            <Image
+              src={`/phones.png`}
+              layout="fill"
+              objectFit={'cover'}
+              //   width={834}
+              //   height={611}
+            />
+          </div>
+        </div>
+      </main>
+    </div>
   );
 }
