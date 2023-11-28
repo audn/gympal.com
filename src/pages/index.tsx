@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className="min-h-screen overflow-hidden relative bg-gradient-to-t from-types-50 to-types-100  flex flex-col items-center ">
+    <div className=" min-h-screen overflow-hidden relative bg-gradient-to-t from-types-50 to-types-100  flex flex-col items-center ">
       <main className={'max-w-6xl px-4 xs:px-10 text-center'}>
         <div className="max-w-3xl mx-auto pt-20">
           <div className="px-4 py-1 border bg-[#121111] text-[17px] rounded-full inline-flex mb-8 border-white/10">
