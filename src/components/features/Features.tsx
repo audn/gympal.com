@@ -1,4 +1,5 @@
 import concat from '../../concat';
+import DailyGoals from './showcases/DailyGoals';
 
 function Features() {
   const cols = [
@@ -7,6 +8,9 @@ function Features() {
     },
     {
       title: 'Daily Goals',
+      decription:
+        'Create different variations of your meals, such as bulking or cutting.',
+      component: <DailyGoals />,
     },
     {
       title: 'Meal Sizes',
@@ -25,12 +29,14 @@ function Features() {
           key={x.title}
           className={concat(
             x.title == 'Overview' ? 'row-span-2' : '',
-            'bg-types-100 p-8 min-w-[300px] flex flex-col rounded-xl justify-between',
+            x.title == 'Daily Goals' ? 'w-[354px]' : '',
+            'bg-types-100 p-4 max-w-[350px] flex flex-col rounded-xl text-start justify-between',
           )}
         >
-          <div className="w-2 h-2 bg-red-500"></div>
+          {x.component}
           <div className="">
-            <h3>{x.title}</h3>
+            <h3 className="font-semibold mb-1 mt-2">{x.title}</h3>
+            <p className=" text-[#787880]">{x.decription}</p>
           </div>
         </div>
       ))}

@@ -8,7 +8,11 @@ module.exports = {
     100: `hsla(240, 33%, 94%, ${0.6})`,
   },
   types: {
-    //     50: '#040404',
+    calories: '#2F80ED',
+    fat: '#FCC745',
+    protein: '#EF6C4A',
+    carbs: '#55AE72',
+    50: '#040404',
     100: '#1C1C1E',
   },
 };

@@ -49,14 +49,14 @@ export default function Home() {
   return (
     //     <div className="bg-gradient-to-t from-types-50 to-types-100">
     <main className={'h-full '}>
-      <div className="max-h-screen min-h-screen flex items-start justify-center bg-gradient-to-t from-types-50 to-types-100 ">
+      <div className="max-h-screen min-h-screen overflow-hidden flex items-start justify-center bg-gradient-to-t from-types-50 to-[#101010] ">
         {/* <div className="mt-[20%] absolute">
           <h1 className="text-5xl font-bold flex items-center ">
             meet<div className="w-[550px] h-px"></div> gympal
           </h1>
         </div> */}
         <div className="max-h-screen max-w-6xl min-h-screen flex items-end mr-[-118px]">
-          <div className="flex -mb-[00px] relative">
+          <div className="flex -mb-[200px] relative">
             <motion.div
               className="z-30 "
               animate="enter"
@@ -85,7 +85,7 @@ export default function Home() {
               >
                 <img
                   src={`/phone.png`}
-                  className="h-auto w-[400px] relative mx-auto z-50"
+                  className="h-auto w-[500px] relative mx-auto z-50"
                 />
                 <div className="absolute inset-x-3  inset-y-14  z-10 blur filter shadowww rounded-xl"></div>
               </div>
@@ -103,14 +103,11 @@ export default function Home() {
                 Gympal
               </h1>
             </motion.div>
-            {/* <div className="absolute inset-0 shadow-light w-full  h-[60px] mt-14 z-10"></div> */}
+            <div className="absolute inset-0 shadow-light w-full  h-[60px] mt-14 z-10"></div>
           </div>
         </div>
       </div>
-      <div
-        //     style={{ transform: `translateY(-${offsetY * 0.5}px)` }}
-        className="min-h-screen p-24 mt-10 text-center mx-auto bg-gradient-to-t from-types-50 to-types-100 flex justify-center items-start"
-      >
+      <div className="min-h-screen bg-gradient-to-t from-types-50 to-[#101010] p-24 text-center mx-auto  flex justify-center items-start">
         <div className="flex flex-col">
           <div className="mb-12">
             <h1 className="text-3xl font-medium">Powerful and customizable</h1>
