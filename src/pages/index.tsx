@@ -12,12 +12,12 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   const scaleIn = {
-    initial: { opacity: 0, scale: 0.95 },
+    initial: { opacity: 0, scale: 0.85 },
     enter: {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.5,
+        duration: 1,
         delay: 0.2,
         type: 'spring',
         bounce: 0.4,
@@ -32,6 +32,20 @@ export default function Home() {
       transition: { duration: 0.5, delay: 1 },
     },
   };
+  const fadeInLeftAnimation = {
+    initial: {
+      opacity: 0,
+      x: '-100%',
+    },
+    enter: {
+      opacity: 1,
+      x: '0%',
+    },
+  };
+  const transition = {
+    duration: 1,
+    ease: 'easeInOut',
+  };
   return (
     //     <div className="bg-gradient-to-t from-types-50 to-types-100">
     <main className={'h-full '}>
@@ -44,15 +58,16 @@ export default function Home() {
         <div className="max-h-screen max-w-6xl min-h-screen flex items-end mr-[-118px]">
           <div className="flex -mb-[00px] relative">
             <motion.div
-              className="z-30"
+              className="z-30 "
               animate="enter"
               exit="exit"
               key="meet"
-              initial="initial"
-              //     variants={text}
+              //   transition={transition}
+              //   initial="initial"
+              //   variants={fadeInLeftAnimation}
               style={{ transform: `translateY(${offsetY * 0.6}px)` }}
             >
-              <h1 className="text-8xl font-extrabold flex items-center ">
+              <h1 className="text-8xl rio fadeInRight  font-extrabold flex items-center ">
                 Meet
               </h1>
             </motion.div>
@@ -62,10 +77,10 @@ export default function Home() {
               exit="exit"
               initial="initial"
               variants={scaleIn}
-              className="col-span-4 px-3 z-40"
+              className="col-span-4 px-3 z-40 "
             >
               <div
-                className="relative inline-block  mt-[-150px] "
+                className="relative inline-block  mt-[-150px] phone "
                 // style={{ transform: `translateY(-${offsetY * 0.5}px)` }}
               >
                 <img
@@ -81,10 +96,10 @@ export default function Home() {
               initial="initial"
               key="gympal"
               //     variants={text}
-              className="z-30"
+              className="z-30 "
               style={{ transform: `translateY(${offsetY * 0.6}px)` }}
             >
-              <h1 className="text-8xl font-extrabold flex items-center ">
+              <h1 className="text-8xl rio fadeInLeft font-extrabold flex items-center ">
                 Gympal
               </h1>
             </motion.div>
@@ -97,7 +112,13 @@ export default function Home() {
         className="min-h-screen p-24 mt-10 text-center mx-auto bg-gradient-to-t from-types-50 to-types-100 flex justify-center items-start"
       >
         <div className="flex flex-col">
-          <h1 className="text-2xl font-semibold">Powerful and customizable</h1>
+          <div className="mb-12">
+            <h1 className="text-3xl font-medium">Powerful and customizable</h1>
+            <p className="text-lg mt-2 text-on-100">
+              We’ve built Gympal to adapt to your needs
+            </p>
+          </div>
+
           <Features />
         </div>
       </div>

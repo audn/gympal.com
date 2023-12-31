@@ -16,9 +16,9 @@ function Header() {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 1,
         type: 'spring',
-        delay: 0.5,
+        delay: 2,
         bounce: 0.4,
       },
     },

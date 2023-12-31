@@ -25,7 +25,7 @@ function Features() {
           key={x.title}
           className={concat(
             x.title == 'Overview' ? 'row-span-2' : '',
-            'bg-types-100 p-3 flex flex-col justify-between',
+            'bg-types-100 p-8 min-w-[300px] flex flex-col rounded-xl justify-between',
           )}
         >
           <div className="w-2 h-2 bg-red-500"></div>
