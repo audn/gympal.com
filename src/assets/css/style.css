@@ -4,9 +4,18 @@
 html {
 }
 body {
-  overflow-x: hidden;
   color: #eff3f6;
   font-family: 'Inter', sans-serif;
   background-color: #040404;
   font-family: 'Red Hat Display', sans-serif;
+}
+.shadowww {
+  box-shadow: 0px 0px 100px -5px #090909;
+}
+.shadow-light {
+  border-radius: 148.5px 183.5px 148.5px 148.5px;
+  background: #2d2d2f;
+
+  mix-blend-mode: screen;
+  filter: blur(125px);
 }
