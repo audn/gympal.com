@@ -8,15 +8,19 @@ function Features() {
     },
     {
       title: 'Daily Goals',
-      decription:
+      description:
         'Create different variations of your meals, such as bulking or cutting.',
       component: <DailyGoals />,
     },
     {
       title: 'Meal Sizes',
+      description:
+        'Create diffent variations of your meals, such as bulking or cutting. ',
     },
     {
       title: 'Customized Sizes',
+      description:
+        'Why should you need to remember how many grams a slice of bread is?',
     },
     {
       title: 'Goals',
@@ -36,7 +40,7 @@ function Features() {
           {x.component}
           <div className="">
             <h3 className="font-semibold mb-1 mt-2">{x.title}</h3>
-            <p className=" text-[#787880]">{x.decription}</p>
+            <p className=" text-[#787880]">{x.description}</p>
           </div>
         </div>
       ))}

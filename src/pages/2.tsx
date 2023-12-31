@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Features from '../components/features/Features';
 
 export default function Home() {
   const [offsetY, setOffsetY] = useState(0);
@@ -71,7 +72,7 @@ export default function Home() {
           variants={scaleIn}
         >
           <div
-            className="relative z-50"
+            className="relative z-10"
             style={{
               transform: `translateY(${offsetY * 0.2}px)`,
             }}
@@ -88,7 +89,7 @@ export default function Home() {
           variants={scaleIn}
         >
           <div
-            className="relative z-50"
+            className="relative z-10"
             style={{
               transform: `translateY(${offsetY * 0.2}px)`,
             }}
@@ -104,7 +105,16 @@ export default function Home() {
         style={{ transform: `translateY(-${offsetY * -0.5}px)` }}
         className="min-h-screen p-24 text-center mx-auto bg-gradient-to-t from-types-50 to-types-100 flex justify-center items-start"
       >
-        <h1 className="text-2xl font-semibold">Powerful and customizable</h1>
+        <div className="flex flex-col">
+          <div className="mb-12">
+            <h1 className="text-3xl font-medium">Powerful and customizable</h1>
+            <p className="text-lg mt-2 text-on-100">
+              We’ve built Gympal to adapt to your needs
+            </p>
+          </div>
+
+          <Features />
+        </div>{' '}
       </div>
       {/* </div> */}
     </main>

@@ -25,7 +25,13 @@ function Header() {
   };
   const router = useRouter();
   return (
-    <motion.div animate="enter" exit="exit" initial="initial" variants={header}>
+    <motion.div
+      animate="enter"
+      exit="exit"
+      initial="initial"
+      variants={header}
+      className="relative z-50"
+    >
       <header className=" flex items-center justify-center fixed top-8 inset-x-0 z-50">
         <div className="px-4 py-2 shadow-lg rounded-full w-auto flex items-center bg-types-100 border border-[#2c2c2c]">
           <img src="/favicon/apple-touch-icon.png" className="w-6 h-6 mr-6" />
