@@ -16,10 +16,11 @@ function Header() {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 1,
+        duration: 0.5,
         type: 'spring',
-        delay: 2,
-        bounce: 0.4,
+        delay: 0.5,
+        //   delay: 2.5,
+        //   bounce: 0.4,
       },
     },
   };

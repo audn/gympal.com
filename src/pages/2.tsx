@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Features from '../components/features/Features';
+import LeftPhone from '../components/phones/LeftPhone';
+import RightPhone from '../components/phones/RightPhone';
 
 export default function Home() {
   const [offsetY, setOffsetY] = useState(0);
@@ -64,42 +66,8 @@ export default function Home() {
             </p>
           </div>
         </motion.div>
-        <motion.div
-          animate="enter"
-          className="top-24 absolute -left-14 "
-          exit="exit"
-          initial="initial"
-          variants={scaleIn}
-        >
-          <div
-            className="relative z-10"
-            style={{
-              transform: `translateY(${offsetY * 0.2}px)`,
-            }}
-          >
-            <img src={`/phone.png`} className="h-auto w-[500px] -rotate-12" />
-          </div>
-        </motion.div>
-        <motion.div
-          animate="enter"
-          exit="exit"
-          initial="initial"
-          className="-bottom-10  -right-14 absolute"
-          // className="top-10 absolute -right-14 "
-          variants={scaleIn}
-        >
-          <div
-            className="relative z-10"
-            style={{
-              transform: `translateY(${offsetY * 0.2}px)`,
-            }}
-          >
-            <img
-              src={`/nutrition.png`}
-              className="h-auto w-[400px] rotate-12"
-            />
-          </div>
-        </motion.div>
+        <LeftPhone offsetY={offsetY} />
+        <RightPhone offsetY={offsetY} />
       </div>
       <div
         style={{ transform: `translateY(-${offsetY * -0.5}px)` }}
@@ -114,7 +82,7 @@ export default function Home() {
           </div>
 
           <Features />
-        </div>{' '}
+        </div>
       </div>
       {/* </div> */}
     </main>
