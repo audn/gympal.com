@@ -25,11 +25,10 @@ export default function Home() {
     },
   };
   const text = {
-    initial: { opacity: 0, translateY: 0 },
+    initial: { opacity: 0 },
     enter: {
-      translateY: 0,
       opacity: 1,
-      transition: { duration: 0.5, delay: 1 },
+      transition: { duration: 0.5, delay: 2 },
     },
   };
   const fadeInLeftAnimation = {
@@ -90,19 +89,35 @@ export default function Home() {
                 <div className="absolute inset-x-3  inset-y-14  z-10 blur filter shadowww rounded-xl"></div>
               </div>
             </motion.div>
-            <motion.div
-              animate="enter"
-              exit="exit"
-              initial="initial"
-              key="gympal"
-              //     variants={text}
-              className="z-30 "
+            <div
+              className="z-30 relative max-h-[50vh] text-cente flex flex-col justify-start items-center"
               style={{ transform: `translateY(${offsetY * 0.6}px)` }}
             >
-              <h1 className="text-8xl rio fadeInLeft font-extrabold flex items-center ">
-                Gympal
-              </h1>
-            </motion.div>
+              <motion.div
+                animate="enter"
+                exit="exit"
+                initial="initial"
+                key="gympal"
+                className=""
+                variants={scaleIn}
+              >
+                <h1 className="text-8xl rio fadeInLeft font-extrabold flex items-center ">
+                  Gympal
+                </h1>
+              </motion.div>
+              <motion.div
+                animate="enter"
+                exit="exit"
+                initial="initial"
+                variants={text}
+              >
+                <div className="absolute bottom-0 flex flex-col items-center text-white/60">
+                  More Below
+                  <i className="fa-solid fa-arrow-down text-lg wobble " />
+                </div>
+              </motion.div>
+            </div>
+
             <div className="absolute inset-0 shadow-light w-full  h-[60px] mt-14 z-10"></div>
           </div>
         </div>

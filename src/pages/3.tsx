@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Features from '../components/features/Features';
-import LeftPhone from '../components/phones/LeftPhone';
-import RightPhone from '../components/phones/RightPhone';
 
 export default function Home() {
   const [offsetY, setOffsetY] = useState(0);
@@ -42,7 +40,7 @@ export default function Home() {
   };
   return (
     <main className={'h-full '}>
-      <div className="min-h-screen  flex relative overflow-hidden items-center justify-center bg-gradient-to-t from-types-50 to-types-100 ">
+      <div className="min-h-screen flex-col pt-[150px] flex relative overflow-hidden items-center justify-center bg-types-50 ">
         <motion.div
           className="z-30 max-w-6xl mx-auto"
           animate="enter"
@@ -77,13 +75,26 @@ export default function Home() {
             </div>
           </div>
         </motion.div>
-        <LeftPhone offsetY={offsetY} />
-        <RightPhone offsetY={offsetY} />
+        <motion.div
+          animate="enter"
+          exit="exit"
+          initial="initial"
+          variants={scaleIn}
+        >
+          <div
+            className="relative z-30 mt-24"
+            style={{
+              transform: `translateY(${offsetY * 0.2}px)`,
+            }}
+          >
+            <img src={`/phone.png`} className="h-auto w-[500px] " />
+          </div>
+        </motion.div>
       </div>
       <div
         style={{ transform: `translateY(-${offsetY * -0.5}px)` }}
         //   className="min-h-screen p-24 text-center mx-auto bg-types-50 flex justify-center items-start"
-        className="min-h-screen p-24 text-center mx-auto bg-gradient-to-t from-types-50 to-types-100 flex justify-center items-start"
+        className="min-h-screen p-20 text-center mx-auto border-t border-types-100 flex justify-center items-start"
       >
         <div className="flex flex-col">
           <div className="mb-12">
