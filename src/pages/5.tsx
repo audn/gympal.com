@@ -21,14 +21,6 @@ function Arrow({ className }: { className?: string }) {
   );
 }
 function Four() {
-  const text = {
-    initial: { opacity: 0, y: '30%' },
-    enter: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5, delay: 0.5 },
-    },
-  };
   const content = {
     initial: { opacity: 0, y: 20 },
     enter: {
@@ -36,7 +28,35 @@ function Four() {
       opacity: 1,
       transition: {
         duration: 0.7,
-        delay: 1.5,
+        delay: 1.7,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        damping: 100,
+        stiffness: 20,
+      },
+    },
+  };
+  const text = {
+    initial: { opacity: 0, y: 30 },
+    enter: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        delay: 0.7,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        damping: 100,
+        stiffness: 20,
+      },
+    },
+  };
+  const form = {
+    initial: { opacity: 0, y: 30 },
+    enter: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        delay: 0.9,
         ease: [0.25, 0.46, 0.45, 0.94],
         damping: 100,
         stiffness: 20,
@@ -88,21 +108,8 @@ function Four() {
             animate="enter"
             exit="exit"
             initial="initial"
-            variants={{
-              initial: { opacity: 0, y: '50%' },
-              enter: {
-                y: 0,
-                opacity: 1,
-                transition: {
-                  duration: 0.5,
-                  delay: 0.8,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                  damping: 12,
-                  stiffness: 200,
-                },
-              },
-            }}
-            className="space-y-2 mt-12 max-w-sm mx-auto items-center"
+            variants={form}
+            className="space-y-2 mt-8 max-w-xs mx-auto items-center"
           >
             <input
               className="bg-types-150 h-[44px] outline-none w-full  rounded-xl px-6 py-2"
@@ -110,8 +117,7 @@ function Four() {
               type="email"
             />
             <button className="bg-types-fat w-full text-black px-4 text-center justify-center flex items-center font-bold py-2 rounded-xl">
-              <i className="fa-solid fa-right-to-bracket mr-2" /> Get Early
-              Access
+              Join The Waitlist
             </button>
           </motion.div>
         </div>
