@@ -47,7 +47,25 @@ body {
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
-
+.Phone__GraphicContainer {
+  position: relative;
+  overflow: hidden;
+}
+.Phone__PhoneContainer {
+  display: inline-block;
+  position: relative;
+  pointer-events: none;
+  user-select: none;
+  overflow: hidden;
+}
+.phone__content {
+  position: absolute;
+  z-index: 1;
+  inset: 1.5% 3.3%;
+  background: transparent;
+  border-radius: 5%;
+  overflow: hidden;
+}
 @-webkit-keyframes wobble {
   from {
     -webkit-transform: translate3d(0, 0, 0);

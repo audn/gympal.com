@@ -8,7 +8,7 @@ function Header() {
     { label: 'Features', anchor: '/' },
     { label: 'Roadmap', anchor: '/2' },
     { label: 'Careers', anchor: '/3' },
-    { label: 'Twitter', anchor: 'twitter' },
+    { label: 'Twitter', anchor: '/4' },
   ];
   const header = {
     initial: { opacity: 0, y: -40 },
@@ -40,7 +40,7 @@ function Header() {
             <img src="/favicon/apple-touch-icon.png" className="w-6 h-6 mr-2" />
             <h3 className="font-medium">Gympal</h3>
           </div>
-          <div className="flex items-center">
+          <div className="hidden md:flex items-center">
             {route.map((x) => {
               return (
                 <Link href={x.anchor}>
