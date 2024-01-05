@@ -9,19 +9,17 @@ function Header() {
     { label: 'Roadmap', anchor: '/2' },
     { label: 'Careers', anchor: '/3' },
     { label: 'Twitter', anchor: '/4' },
+    { label: 'Twitter2', anchor: '/5' },
   ];
   const header = {
-    initial: { opacity: 0, y: -40 },
+    initial: { opacity: 0 },
     enter: {
-      scale: 1,
-      y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
-        type: 'spring',
-        delay: 0.5,
-        //   delay: 2.5,
-        //   bounce: 0.4,
+        duration: 1,
+        //   type: 'spring',
+        delay: 0.2,
+        //     bounce: 0.4,
       },
     },
   };
@@ -31,10 +29,10 @@ function Header() {
       animate="enter"
       exit="exit"
       initial="initial"
-      // variants={header}
+      variants={header}
       className="relative z-50"
     >
-      <header className=" flex items-center justify-center fixed top-0 inset-x-0 z-50 bg-types-50 border-b border-types-100">
+      <header className=" flex items-center justify-center fixed top-0 inset-x-0 z-50 bg-[#101010] border-b border-types-100">
         <div className="px-4 h-[80px] w-full max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center">
             <img src="/favicon/apple-touch-icon.png" className="w-6 h-6 mr-2" />
