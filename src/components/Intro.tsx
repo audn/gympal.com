@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-function Intro(props) {
+function Intro() {
   return (
     <div className="py-24 max-w-6xl mx-auto w-full">
       <motion.div
@@ -14,9 +14,7 @@ function Intro(props) {
             opacity: 1,
             transition: {
               duration: 1,
-              //   type: 'spring',
               delay: 2.4,
-              //     bounce: 0.4,
             },
           },
         }}

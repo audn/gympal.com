@@ -24,16 +24,14 @@ function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   const route = [
-    { label: '1', anchor: '/' },
-    { label: '2', anchor: '/2' },
-    { label: '3', anchor: '/3' },
-    { label: '4', anchor: '/4' },
-    { label: '5', anchor: '/5' },
-    { label: '6', anchor: '/6' },
-    { label: '7', anchor: '/7' },
+    { label: 'About', anchor: '/' },
+    { label: 'Features', anchor: '/#features' },
+    { label: 'Roadmap', anchor: '/3' },
+    { label: 'Team', anchor: '/4' },
   ];
 
   const router = useRouter();
+  console.log(router);
 
   return (
     <motion.header
@@ -62,7 +60,7 @@ function Header() {
                 <button
                   key={x.label}
                   className={concat(
-                    x.anchor == router.pathname
+                    x.anchor == router.asPath
                       ? 'text-white/90 bg-[#2C2C2E]'
                       : 'text-white/80 hover:bg-[#2C2C2E]',
                     'px-3 py-1 rounded-full block transition-all ease-out duration-200',

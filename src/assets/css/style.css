@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 html {
+  scroll-behavior: smooth !important;
 }
 body {
   color: #eff3f6;
@@ -112,19 +113,4 @@ body {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
-}
-
-.jackInTheBox {
-  -webkit-animation-name: jackInTheBox;
-  animation-name: jackInTheBox;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-.card {
-  font-size: 164px;
-  width: 300px;
-  height: 430px;
 }
