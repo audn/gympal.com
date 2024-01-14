@@ -32,10 +32,10 @@ function Section({
   return (
     <div className="grid grid-cols-2 bg-types-100 rounded-2xl overflow-hidden">
       <div className="relative p-12">
-        <h2 className="text-on-100 text-2xl font-medium leading-[40px]">
-          <span className="text-white font-semibold">{title}</span>
-          &nbsp;{text}
-        </h2>
+        <div className="text-on-100 text-2xl font-medium leading-[40px]">
+          <h1 className="inline text-white font-semibold">{title}</h1>
+          <h2 className="inline">&nbsp;{text}</h2>
+        </div>
         {title == 'Customizable meal sizes.' ? (
           <div className="absolute bottom-24 flex right-[10%] z-20">
             <div className="px-4 py-2 bg-[#2C2C2E] flex-col  max-w-xs rounded-xl flex ">

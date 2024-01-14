@@ -19,6 +19,7 @@ body {
   mix-blend-mode: screen;
   filter: blur(125px);
 }
+
 .fadeInRight {
   -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;

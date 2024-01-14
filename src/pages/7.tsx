@@ -1,11 +1,12 @@
 6;
-import { motion } from 'framer-motion';
+import { Variants, motion } from 'framer-motion';
 
 import { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 import Intro from '../components/Intro';
 import Light from '../components/Light';
 import Section from '../components/Section';
+import Waitlist from '../components/Waitlist';
 
 function Arrow({ className }: { className?: string }) {
   return (
@@ -34,47 +35,45 @@ function Four() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scaleIn = {
-    initial: { opacity: 0, y: 200 },
+  //   const scaleIn = {
+  //     initial: { opacity: 0, scale: 0.85 },
+  //     enter: {
+  //       opacity: 1,
+  //       scale: 1,
+  //       transition: {
+  //         duration: 1,
+  //         delay: 0.5,
+  //         type: 'spring',
+  //         bounce: 0.4,
+  //       },
+  //     },
+  //   };
+  const scaleIn: Variants = {
+    initial: { opacity: 0, y: '100%' },
     enter: {
       opacity: 1,
       y: 0,
       transition: {
+        delay: 2,
         duration: 1.5,
-        delay: 0.2,
-        type: 'spring',
-        bounce: 0,
+        //   type: 'spring',
       },
     },
   };
 
-  const content = {
-    initial: { opacity: 0, y: 20 },
-    enter: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.7,
-        delay: 1.7,
-        ease: [0.25, 0.46, 0.45, 0.94],
-        damping: 100,
-        stiffness: 20,
-      },
-    },
-  };
   const fadeIn = {
     initial: { opacity: 0 },
     enter: {
       opacity: 1,
       transition: {
         duration: 1,
-        //   type: 'spring',
-        delay: 1.5,
+        type: 'spring',
+        delay: 1.87,
         //     bounce: 0.4,
       },
     },
   };
-
+  const op = 100 - offsetY / 16;
   return (
     <main className={'h-full '}>
       <motion.div
@@ -84,28 +83,38 @@ function Four() {
         variants={{
           initial: { height: '100vh', opacity: 0 },
           enter: {
-            height: '85vh',
+            height: '90vh',
             opacity: 1,
             transition: {
-              height: {
-                duration: 1.5,
-                delay: 0.5,
-                bounce: 0,
-                type: 'spring',
-              },
+              duration: 1.5,
+              //   type: 'spring',
             },
           },
         }}
-        className="overflow-hidden  border-b border-types-100 flex items-st art justify-center bg-gradient-to-t from-types-50 to-[#101010] "
+        className="overflow-hidden flex items-st art justify-center bg-gradient-to-t bg-types-50 "
       >
         <div className="max-h-screen max-w-6xl min-h-screen flex items-end mr-[-118px]">
-          <div className="flex -mb-[170px] items-start  relative">
+          <div className="flex -mb-[200px] relative">
             <motion.div
-              className="z-30 flex  pt-[100px]"
+              className="z-30 "
               animate="enter"
               exit="exit"
-              key="meet"
-              style={{ transform: `translateY(${offsetY * 0.4}px)` }}
+              initial="initial"
+              variants={{
+                initial: { opacity: 0, x: 50 },
+                enter: {
+                  x: 0,
+                  opacity: 1,
+                  transition: {
+                    x: {
+                      delay: 1.8,
+                      duration: 1,
+                      type: 'tween',
+                    },
+                    duration: 0,
+                  },
+                },
+              }}
             >
               <h1 className="text-8xl rio fadeInRight  font-extrabold flex items-center ">
                 Meet
@@ -132,34 +141,48 @@ function Four() {
               exit="exit"
               initial="initial"
               variants={{
-                initial: { opacity: 0, y: 200 },
+                initial: { opacity: 0, y: 300 },
                 enter: {
-                  opacity: 0.4,
+                  opacity: 1,
                   y: 150,
                   transition: {
-                    type: 'tween',
-                    duration: 5,
-                    delay: 1,
+                    delay: 2,
+                    duration: 1,
                   },
                 },
               }}
               className="absolute  left-[-350px] -translate-x-1/2"
             >
-              <Light />
+              <div style={{ opacity: op }}>
+                <Light />
+              </div>
             </motion.div>
+
             <div
               className="z-30 relative max-h-[50vh] text-cente flex flex-col justify-start items-center"
-              style={{ transform: `translateY(${offsetY * 0.4}px)` }}
+              style={{ transform: `translateY(${offsetY * 0.6}px)` }}
             >
               <motion.div
                 animate="enter"
                 exit="exit"
                 initial="initial"
-                key="gympal"
-                className="z-30 flex  pt-[100px]"
-                variants={scaleIn}
+                variants={{
+                  initial: { opacity: 0, x: -250 },
+                  enter: {
+                    x: 0,
+                    opacity: 1,
+                    transition: {
+                      x: {
+                        delay: 1.5,
+                        duration: 1,
+                        type: 'tween',
+                      },
+                      duration: 0,
+                    },
+                  },
+                }}
               >
-                <h1 className="text-8xl rio fadeInLeft font-extrabold flex items-center ">
+                <h1 className="text-8xl rio  font-extrabold flex items-center ">
                   Gympal
                 </h1>
               </motion.div>
@@ -174,7 +197,7 @@ function Four() {
           </div>
         </div>
       </motion.div>
-      <div className="min-h-screen flex flex-col pb-24 bg-[#0c0c0c]">
+      <div className="min-h-screen flex flex-col  bg-gradient-to-t from-types-50 to-[#101010]">
         <Intro />
         <div className="max-w-6xl flex flex-col space-y-10 mx-auto">
           <Section
@@ -201,7 +224,7 @@ function Four() {
           <p className="text-sm text-on-100 !mt-4 !my-0 text-center">
             + many many more features
           </p>
-          {/* <Waitlist /> */}
+          <Waitlist />
           <Footer />
         </div>
       </div>

@@ -44,11 +44,11 @@ function Footer() {
           </div>
           <div className="relative flex w-full max-w-sm items-center justify-center">
             <input
-              className="bg-white h-[50px]  w-full rounded-full px-6 py-2 "
+              className="bg-types-200 h-[50px] placeholder:text-white/80 w-full rounded-full px-6 py-2 "
               placeholder="Email"
             />
             <div className="absolute right-2">
-              <button className="bg-types-100 text-white px-4 text-sm flex items-center font-bold py-2 rounded-full">
+              <button className="bg-[#FCC745] text-black px-4 text-sm flex items-center font-bold py-2 rounded-full">
                 Join Waitlist
               </button>
             </div>
