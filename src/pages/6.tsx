@@ -1,8 +1,9 @@
 6;
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
+import Intro from '../components/Intro';
 import Section from '../components/Section';
 import Waitlist from '../components/Waitlist';
 
@@ -76,22 +77,14 @@ function Four() {
 
   return (
     <main className={'h-full '}>
-      <div className="max-h-screen min-h-screen overflow-hidden flex items-st art justify-center bg-gradient-to-t from-types-50 to-[#101010] ">
-        {/* <div className="mt-[20%] absolute">
-          <h1 className="text-5xl font-bold flex items-center ">
-            meet<div className="w-[550px] h-px"></div> gympal
-          </h1>
-        </div> */}
+      <div className="h-[80vh] overflow-hidden flex items-st art justify-center bg-gradient-to-t from-types-50 to-[#101010] ">
         <div className="max-h-screen max-w-6xl min-h-screen flex items-end mr-[-118px]">
-          <div className="flex -mb-[200px] relative">
+          <div className="flex -mb-[0px] relative">
             <motion.div
               className="z-30 "
               animate="enter"
               exit="exit"
               key="meet"
-              //   transition={transition}
-              //   initial="initial"
-              //   variants={fadeInLeftAnimation}
               style={{ transform: `translateY(${offsetY * 0.6}px)` }}
             >
               <h1 className="text-8xl rio fadeInRight  font-extrabold flex items-center ">
@@ -106,13 +99,10 @@ function Four() {
               variants={scaleIn}
               className="col-span-4 px-3 z-40 "
             >
-              <div
-                className="relative inline-block  mt-[-150px] phone "
-                // style={{ transform: `translateY(-${offsetY * 0.5}px)` }}
-              >
+              <div className="relative inline-block  mt-[-150px] phone ">
                 <img
                   src={`/phone.png`}
-                  className="h-auto w-[500px] relative mx-auto z-50"
+                  className="h-auto w-[400px] relative mx-auto z-50"
                 />
                 <div className="absolute inset-x-3  inset-y-14  z-10 blur filter shadowww rounded-xl"></div>
               </div>
@@ -144,52 +134,37 @@ function Four() {
           </div>
         </div>
       </div>
-      <AnimatePresence exitBeforeEnter>
-        <div
-          //     animate="enter"
-          //     exit="exit"
-          //     initial="initial"
-          //     variants={content}
-          className="min-h-screen flex flex-col space-y-10 bg-gradient-to-t from-types-50 to-[#101010]"
-        >
-          <motion.div
-            initial="offscreen"
-            whileInView="onscreen"
-            className="min-h-screen pt-12 pb-24 bg-gradient-to-t from-types-50 to-[#101010]"
-            viewport={{ once: true, amount: 0.8 }}
-          >
-            <div className="max-w-6xl flex flex-col space-y-10 mx-auto">
-              <Section
-                title="Customizable meal sizes."
-                text="Easily create and manage different meal sizes with
-                      different portions or products."
-                image="mealsize.png"
-                color={'#55AE72'}
-                imageClass=" -mb-[40%] scale-125"
-              />
-              <Section
-                title="Present moment is history."
-                text="You can look back at it whenever you’d like to."
-                color={'#FCC745'}
-                image="nutrition2.png"
-              />
-              <Section
-                title="Do you remember how many grams a slice of bread is?"
-                text="No worries. With Gympal you can create custom
+      <div className="min-h-screen flex flex-col  bg-gradient-to-t from-types-50 to-[#101010]">
+        <Intro />
+        <div className="max-w-6xl flex flex-col space-y-10 mx-auto">
+          <Section
+            title="Customizable meal sizes."
+            text="Easily create and manage different meal sizes with different portions or products."
+            image="mealsize.png"
+            color={'#55AE72'}
+            imageClass=" -mb-[40%] scale-125"
+          />
+          <Section
+            title="Present moment is history."
+            text="You can look back at it whenever you’d like to."
+            color={'#FCC745'}
+            image="nutrition2.png"
+          />
+          <Section
+            title="Do you remember how many grams a slice of bread is?"
+            text="No worries. With Gympal you can create custom
                       servings for every food."
-                color={'#2F80ED'}
-                image="customsize.png"
-                imageClass="-mt-[97%] scale-110"
-              />
-              <p className="text-sm text-on-100 !mt-4 !my-0 text-center">
-                + many many more features
-              </p>
-              <Waitlist />
-              <Footer />
-            </div>
-          </motion.div>
+            color={'#2F80ED'}
+            image="customsize.png"
+            imageClass="-mt-[97%] scale-110"
+          />
+          <p className="text-sm text-on-100 !mt-4 !my-0 text-center">
+            + many many more features
+          </p>
+          <Waitlist />
+          <Footer />
         </div>
-      </AnimatePresence>
+      </div>
     </main>
   );
 }
