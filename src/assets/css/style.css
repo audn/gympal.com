@@ -24,12 +24,12 @@ body {
   animation-name: fadeInRight;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  animation-delay: 1s;
+  animation-delay: 1.4s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
 .fadeInLeft {
-  animation-delay: 1s;
+  animation-delay: 1.4s;
   -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
   -webkit-animation-duration: 1s;

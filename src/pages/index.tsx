@@ -31,20 +31,7 @@ export default function Home() {
       transition: { duration: 0.5, delay: 2 },
     },
   };
-  const fadeInLeftAnimation = {
-    initial: {
-      opacity: 0,
-      x: '-100%',
-    },
-    enter: {
-      opacity: 1,
-      x: '0%',
-    },
-  };
-  const transition = {
-    duration: 1,
-    ease: 'easeInOut',
-  };
+
   return (
     //     <div className="bg-gradient-to-t from-types-50 to-types-100">
     <main className={'h-full '}>
@@ -122,7 +109,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="min-h-screen bg-gradient-to-t from-types-50 to-[#101010] p-24 text-center mx-auto  flex justify-center items-start">
+      <div className="min-h-screen bg-graddient-to-t from-types-50 to-[#101010] p-24 mx-auto  flex justify-center items-start">
         <div className="flex flex-col">
           <div className="mb-12">
             <h1 className="text-3xl font-medium">Powerful and customizable</h1>
@@ -130,7 +117,6 @@ export default function Home() {
               We’ve built Gympal to adapt to your needs
             </p>
           </div>
-
           <Features />
         </div>
       </div>

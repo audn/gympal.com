@@ -94,11 +94,13 @@ export default function Home() {
       <div
         style={{ transform: `translateY(-${offsetY * -0.5}px)` }}
         //   className="min-h-screen p-24 text-center mx-auto bg-types-50 flex justify-center items-start"
-        className="min-h-screen p-20 text-center mx-auto border-t border-types-100 flex justify-center items-start"
+        className="min-h-screen p-20  mx-auto border-t bg-gradient-to-t from-types-50 to-[#101010]  border-types-100 flex justify-center items-start"
       >
         <div className="flex flex-col">
           <div className="mb-12">
-            <h1 className="text-3xl font-medium">Powerful and customizable</h1>
+            <h1 className="text-3xl font-semibold">
+              Powerful and customizable
+            </h1>
             <p className="text-lg mt-2 text-on-100">
               We’ve built Gympal to adapt to your needs
             </p>

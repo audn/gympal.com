@@ -1,6 +1,8 @@
+6;
 import { motion } from 'framer-motion';
 
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import Phone from '../components/Phone';
 
 function Arrow({ className }: { className?: string }) {
@@ -21,6 +23,29 @@ function Arrow({ className }: { className?: string }) {
   );
 }
 function Four() {
+  const [offsetY, setOffsetY] = useState(0);
+  const handleScroll = () => setOffsetY(window.pageYOffset);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scaleIn = {
+    initial: { opacity: 0, scale: 0.85 },
+    enter: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 1,
+        delay: 0.5,
+        type: 'spring',
+        bounce: 0.4,
+      },
+    },
+  };
+
   const content = {
     initial: { opacity: 0, y: 20 },
     enter: {
@@ -35,94 +60,86 @@ function Four() {
       },
     },
   };
-  const text = {
-    initial: { opacity: 0, y: 30 },
+  const fadeIn = {
+    initial: { opacity: 0 },
     enter: {
-      y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
-        delay: 0.7,
-        ease: [0.25, 0.46, 0.45, 0.94],
-        damping: 100,
-        stiffness: 20,
-      },
-    },
-  };
-  const form = {
-    initial: { opacity: 0, y: 30 },
-    enter: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        delay: 0.9,
-        ease: [0.25, 0.46, 0.45, 0.94],
-        damping: 100,
-        stiffness: 20,
+        duration: 1,
+        //   type: 'spring',
+        delay: 1.5,
+        //     bounce: 0.4,
       },
     },
   };
   return (
-    <main className={'h-full px-6 mt-[80px] sm:mt-0 bg-[#101010]'}>
-      <div className="min-h-[80vh] flex-col flex items-center justify-center">
-        <div className="max-w-md text-center">
-          <h1 className="text-white font-semibold text-5xl leading-[52px]">
-            {'Your new favorite fitness app'.split(' ').map((x, i) => (
-              <motion.span
+    <main className={'h-full '}>
+      <div className="max-h-screen min-h-screen overflow-hidden flex items-st art justify-center bg-gradient-to-t from-types-50 to-[#101010] ">
+        {/* <div className="mt-[20%] absolute">
+          <h1 className="text-5xl font-bold flex items-center ">
+            meet<div className="w-[550px] h-px"></div> gympal
+          </h1>
+        </div> */}
+        <div className="max-h-screen max-w-6xl min-h-screen flex items-end mr-[-118px]">
+          <div className="flex -mb-[200px] relative">
+            <motion.div
+              className="z-30 "
+              animate="enter"
+              exit="exit"
+              key="meet"
+              //   transition={transition}
+              //   initial="initial"
+              //   variants={fadeInLeftAnimation}
+              style={{ transform: `translateY(${offsetY * 0.6}px)` }}
+            >
+              <h1 className="text-8xl rio fadeInRight  font-extrabold flex items-center ">
+                Meet
+              </h1>
+            </motion.div>
+
+            <motion.div
+              animate="enter"
+              exit="exit"
+              initial="initial"
+              variants={scaleIn}
+              className="col-span-4 px-3 z-40 "
+            >
+              <div
+                className="relative inline-block  mt-[-150px] phone "
+                // style={{ transform: `translateY(-${offsetY * 0.5}px)` }}
+              >
+                <img
+                  src={`/phone.png`}
+                  className="h-auto w-[500px] relative mx-auto z-50"
+                />
+                <div className="absolute inset-x-3  inset-y-14  z-10 blur filter shadowww rounded-xl"></div>
+              </div>
+            </motion.div>
+            <div
+              className="z-30 relative max-h-[50vh] text-cente flex flex-col justify-start items-center"
+              style={{ transform: `translateY(${offsetY * 0.6}px)` }}
+            >
+              <motion.div
                 animate="enter"
-                className="inline-block relative"
                 exit="exit"
                 initial="initial"
-                variants={{
-                  initial: { opacity: 0, y: '100%', rotateX: '45deg' },
-                  enter: {
-                    y: 0,
-                    rotateX: 0,
-                    opacity: 1,
-                    transition: {
-                      duration: 0.5,
-                      rotateX: {
-                        duration: 1,
-                      },
-                      delay: 0.2 * (i / 2),
-                      ease: [0.25, 0.46, 0.45, 0.94],
-                      damping: 100,
-                      stiffness: 20,
-                    },
-                  },
-                }}
+                key="gympal"
+                className=""
+                variants={scaleIn}
               >
-                {x}&nbsp;
-              </motion.span>
-            ))}
-          </h1>
-          <motion.p
-            animate="enter"
-            exit="exit"
-            initial="initial"
-            variants={text}
-            className="text-on-100 text-xl mt-10"
-          >
-            An all-in-one app designed to track your diet, workout sessions and
-            bodyweight.
-          </motion.p>
-          <motion.div
-            animate="enter"
-            exit="exit"
-            initial="initial"
-            variants={form}
-            className="space-y-2 mt-8 max-w-xs mx-auto items-center"
-          >
-            <input
-              className="bg-types-150 h-[44px] outline-none w-full  rounded-xl px-6 py-2"
-              placeholder="Email"
-              type="email"
-            />
-            <button className="bg-types-fat w-full text-black px-4 text-center justify-center flex items-center font-bold py-2 rounded-xl">
-              Join The Waitlist
-            </button>
-          </motion.div>
+                <h1 className="text-8xl rio fadeInLeft font-extrabold flex items-center ">
+                  Gympal
+                </h1>
+              </motion.div>
+            </div>
+            <motion.div
+              animate="enter"
+              exit="exit"
+              initial="initial"
+              className="absolute inset-0 shadow-light w-full  h-[60px] mt-14 z-10"
+              variants={fadeIn}
+            ></motion.div>
+          </div>
         </div>
       </div>
       <motion.div
@@ -130,7 +147,7 @@ function Four() {
         exit="exit"
         initial="initial"
         variants={content}
-        className="min-h-screen flex flex-col space-y-10 pb-24"
+        className="min-h-screen flex flex-col space-y-10 12 pt-12 pb-24 bg-gradient-to-t from-types-50 to-[#101010]"
       >
         <div className=" max-w-6xl mx-auto">
           <div className="grid grid-cols-2 bg-types-100 rounded-2xl overflow-hidden">
@@ -213,9 +230,29 @@ function Four() {
             </div>
           </div>
           <div>
-            <p className="text-lg text-on-100 my-4 text-center">
+            <p className="text-sm text-on-100 my-4 text-center">
               + many many more features
             </p>
+          </div>
+          <div className="max-w-md mx-auto py-24 text-center">
+            <h1 className="text-white font-semibold text-5xl leading-[52px]">
+              Join <i>the waitlist!</i>
+            </h1>
+            <p className="text-on-100 text-lg mt-6">
+              Gympal is still under development, but don't worry —
+              <br />
+              You can sign up for early access below!
+            </p>
+            <div className="space-y-3 mt-10 max-w-xs mx-auto items-center">
+              <input
+                className="bg-types-100 h-[44px] outline-none w-full  rounded-xl px-6 py-2"
+                placeholder="Email"
+                type="email"
+              />
+              <button className="bg-types-fat w-full text-black px-4 text-center justify-center flex items-center font-bold py-2 rounded-xl">
+                Join The Waitlist
+              </button>
+            </div>
           </div>
           <div className="grid-cols-3 gap-5  grid mt-24">
             <div className="p-10 flex items-center justify-center bg-types-calories rounded-2xl">
