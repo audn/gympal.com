@@ -1,9 +1,10 @@
 6;
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import Phone from '../components/Phone';
+import Footer from '../components/Footer';
+import Section from '../components/Section';
+import Waitlist from '../components/Waitlist';
 
 function Arrow({ className }: { className?: string }) {
   return (
@@ -72,6 +73,7 @@ function Four() {
       },
     },
   };
+
   return (
     <main className={'h-full '}>
       <div className="max-h-screen min-h-screen overflow-hidden flex items-st art justify-center bg-gradient-to-t from-types-50 to-[#101010] ">
@@ -142,174 +144,52 @@ function Four() {
           </div>
         </div>
       </div>
-      <motion.div
-        animate="enter"
-        exit="exit"
-        initial="initial"
-        variants={content}
-        className="min-h-screen flex flex-col space-y-10 12 pt-12 pb-24 bg-gradient-to-t from-types-50 to-[#101010]"
-      >
-        <div className=" max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 bg-types-100 rounded-2xl overflow-hidden">
-            <div className="relative p-12">
-              <h2 className="text-on-100 text-2xl font-medium leading-[40px]">
-                <span className="text-white font-semibold">
-                  Customizable meal sizes.
-                </span>
-                &nbsp;Easily create and manage different meal sizes with
-                different portions or products.
-              </h2>
-              <div className="absolute bottom-24 flex right-[10%] z-20">
-                <div className="px-4 py-2 bg-[#2C2C2E] flex-col  max-w-xs rounded-xl flex ">
-                  <div className="text-sm font-bold text-types-fat uppercase">
-                    <i className="fa-solid fa-info-circle mr-2" /> Bonus
-                  </div>
-                  <p className="text-on-100 text-base font-medium ">
-                    We have multiple shortcuts for a faster, simpler tracking
-                    experience.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-types-carbs relative flex items-center flex-col justify-center">
-              <div className="mb-12 gap-2 py-10 items-center justify-center flex flex-wrap w-[400px]">
-                {/* {[
-                  'lower carbs',
-                  '+redbull',
-                  'bulking',
-                  'cutting for summer',
-                ].map((x, i) => (
-                  <button
-                    key={x}
-                    className={concat(
-                      i == 0
-                        ? 'bg-white text-black'
-                        : 'bg-[#3A3A3C] text-white',
-                      'px-3 py-1 rounded-full  ',
-                    )}
-                  >
-                    {i == 0 ? <i className="fa-solid fa-star" /> : null} {x}
-                  </button>
-                ))} */}
-              </div>
-              <div className="relative">
-                <Arrow className="absolute z-10 -left-[65%] bottom-[30%]" />
-                <Phone source="mealsize.png" className=" -mb-[40%] scale-125" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 bg-types-100 rounded-2xl overflow-hidden">
-            <div className="relative p-12">
-              <h2 className="text-on-100 text-2xl font-medium leading-[40px]">
-                <span className="text-white font-semibold">
-                  Present moment is history.
-                </span>
-                &nbsp;You can look back at it whenever you’d like to.
-              </h2>
-            </div>
-            <div className="bg-types-fat p-10 flex items-center flex-col justify-center">
-              <Phone source="nutrition2.png" />
-            </div>
-          </div>
-        </div>
-        <div className=" max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 bg-types-100 rounded-2xl overflow-hidden">
-            <div className="relative p-12">
-              <h2 className="text-on-100 text-2xl font-medium leading-[40px]">
-                <span className="text-white font-semibold">
-                  Do you remember how many grams a slice of bread is?
-                </span>
-                &nbsp;No worries. With Gympal you can create custom servings for
-                every food.
-              </h2>
-            </div>
-            <div className="bg-types-calories p-10 pb-24 pt-0 relative flex items-center flex-col justify-center">
-              <Phone source="customsize.png" className="-mt-[70%] scale-110" />
-            </div>
-          </div>
-          <div>
-            <p className="text-sm text-on-100 my-4 text-center">
-              + many many more features
-            </p>
-          </div>
-          <div className="max-w-md mx-auto py-24 text-center">
-            <h1 className="text-white font-semibold text-5xl leading-[52px]">
-              Join <i>the waitlist!</i>
-            </h1>
-            <p className="text-on-100 text-lg mt-6">
-              Gympal is still under development, but don't worry —
-              <br />
-              You can sign up for early access below!
-            </p>
-            <div className="space-y-3 mt-10 max-w-xs mx-auto items-center">
-              <input
-                className="bg-types-100 h-[44px] outline-none w-full  rounded-xl px-6 py-2"
-                placeholder="Email"
-                type="email"
+      <AnimatePresence exitBeforeEnter>
+        <div
+          //     animate="enter"
+          //     exit="exit"
+          //     initial="initial"
+          //     variants={content}
+          className="min-h-screen flex flex-col space-y-10 bg-gradient-to-t from-types-50 to-[#101010]"
+        >
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            className="min-h-screen pt-12 pb-24 bg-gradient-to-t from-types-50 to-[#101010]"
+            viewport={{ once: true, amount: 0.8 }}
+          >
+            <div className="max-w-6xl flex flex-col space-y-10 mx-auto">
+              <Section
+                title="Customizable meal sizes."
+                text="Easily create and manage different meal sizes with
+                      different portions or products."
+                image="mealsize.png"
+                color={'#55AE72'}
+                imageClass=" -mb-[40%] scale-125"
               />
-              <button className="bg-types-fat w-full text-black px-4 text-center justify-center flex items-center font-bold py-2 rounded-xl">
-                Join The Waitlist
-              </button>
+              <Section
+                title="Present moment is history."
+                text="You can look back at it whenever you’d like to."
+                color={'#FCC745'}
+                image="nutrition2.png"
+              />
+              <Section
+                title="Do you remember how many grams a slice of bread is?"
+                text="No worries. With Gympal you can create custom
+                      servings for every food."
+                color={'#2F80ED'}
+                image="customsize.png"
+                imageClass="-mt-[97%] scale-110"
+              />
+              <p className="text-sm text-on-100 !mt-4 !my-0 text-center">
+                + many many more features
+              </p>
+              <Waitlist />
+              <Footer />
             </div>
-          </div>
-          <div className="grid-cols-3 gap-5  grid mt-24">
-            <div className="p-10 flex items-center justify-center bg-types-calories rounded-2xl">
-              <img src="qr.png" className="w-28 rounded-xl" />
-            </div>
-            <Link href="/roadmap">
-              <button className="p-10 flex text-start group relative overflow-hidden items-end justify-start bg-types-100 rounded-2xl">
-                <i className="fa-solid group-hover:scale-110 transition ease-out duration-200 fa-map mb-4 text-[14rem] -rotate-12 opacity-[3%]  text-on-100 absolute -right-10 -top-10" />
-                <div className="text-types-calories font-medium text-2xl">
-                  <i className="fa-solid fa-map mb-4 text-4xl" />
-                  <h3 className="group-hover:underline transition ease-out duration-200">
-                    Roadmap and <br />
-                    planned features
-                  </h3>
-                </div>
-              </button>
-            </Link>
-            <Link href="/roadmap">
-              <button className="p-10 flex group text-start group items-end justify-start overflow-hidden bg-types-100 rounded-2xl relative">
-                <i className="fa-solid group-hover:scale-110 transition ease-out duration-200 fa-users mb-4 text-[14rem] -rotate-12 opacity-[3%]  text-on-100 absolute -right-10 -top-10" />
-                <div className="text-white font-medium text-2xl">
-                  <i className="fa-solid fa-users mb-4 text-4xl" />
-                  <h3 className="group-hover:underline transition ease-out duration-200">
-                    Team{' '}
-                  </h3>
-                </div>
-              </button>
-            </Link>
-            <div className="col-span-3 p-10 flex items-center justify-center bg-types-100 rounded-2xl">
-              <div className="flex justify-between item-center w-full">
-                <div className="flex flex-col">
-                  <span className="text-on-100">
-                    &copy; {new Date().getFullYear()} Gympal, Inc
-                  </span>
-                  <div className="flex space-x-10 mt-3">
-                    <button className="bg-white text-black px-3 text-sm flex items-center font-bold py-1 rounded-full">
-                      <i className="fa-solid fa-envelope mr-2" /> Get in touch
-                    </button>
-                    <div className="flex flex-wrap space-x-2">icon</div>
-                  </div>
-                </div>
-                <div className="relative flex w-full max-w-sm items-center justify-center">
-                  <input
-                    className="bg-white h-[50px]  w-full rounded-full px-6 py-2 "
-                    placeholder="Email"
-                  />
-                  <div className="absolute right-2">
-                    <button className="bg-types-100 text-white px-4 text-sm flex items-center font-bold py-2 rounded-full">
-                      Join Waitlist
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </motion.div>
         </div>
-      </motion.div>
+      </AnimatePresence>
     </main>
   );
 }
