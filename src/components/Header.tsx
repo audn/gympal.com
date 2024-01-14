@@ -17,7 +17,6 @@ export const fadeIn = {
 function Header() {
   const [offsetY, setOffsetY] = useState(0);
   const handleScroll = () => setOffsetY(window.pageYOffset);
-
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
 
@@ -26,11 +25,12 @@ function Header() {
   const route = [
     { label: 'About', anchor: '/' },
     { label: 'Features', anchor: '/#features' },
-    { label: 'Roadmap', anchor: '/3' },
-    { label: 'Team', anchor: '/4' },
+    { label: 'Roadmap', anchor: '/roadmap' },
+    { label: 'Team', anchor: '/team ' },
   ];
 
   const router = useRouter();
+  const isHomepage = router?.asPath == '/';
   console.log(router);
 
   return (
@@ -40,19 +40,26 @@ function Header() {
       initial="initial"
       variants={fadeIn}
       className={concat(
-        offsetY > 750
-          ? 'bg-[#0c0c0c] border-[#161616] '
-          : offsetY > 50
-          ? 'bg-[#0c0c0c]/50 border-[#0c0c0c] '
-          : 'border-transparent bg-transparent',
-        'flex items-center backdrop-blur justify-center fixed transition-all ease-out duration-200 top-0 inset-x-0 z-50 border-b  ',
+        isHomepage
+          ? concat(
+              'backdrop-blur ',
+              offsetY > 750
+                ? 'bg-[#0c0c0c] border-[#161616] '
+                : offsetY > 50
+                ? 'bg-[#0c0c0c]/50 border-[#0c0c0c] '
+                : 'border-transparent bg-transparent',
+            )
+          : 'border-[#161616] bg-[#0F0F0F]',
+        'flex items-center justify-center fixed transition-all ease-out duration-200 top-0 inset-x-0 z-50 border-b px-6',
       )}
     >
-      <div className="px-4 h-[80px] w-full max-w-6xl mx-auto flex items-center justify-between">
-        <div className="flex items-center">
-          <img src="/favicon/apple-touch-icon.png" className="w-6 h-6 mr-2" />
-          <h3 className="font-medium">Gympal</h3>
-        </div>
+      <div className="h-[80px] w-full max-w-6xl mx-auto flex items-center justify-between">
+        <Link href={'/'} className="flex items-center">
+          <button className="flex items-center">
+            <img src="/favicon/apple-touch-icon.png" className="w-6 h-6 mr-2" />
+            <h3 className="font-medium">Gympal</h3>
+          </button>
+        </Link>
         <div className="hidden md:flex items-center">
           {route.map((x) => {
             return (
