@@ -1,13 +1,13 @@
 export const scaleIn = {
-  initial: { opacity: 0, scale: 0.95 },
+  initial: { opacity: 0, y: 200 },
   enter: {
     opacity: 1,
-    scale: 1,
+    y: 0,
     transition: {
-      duration: 0.5,
+      duration: 1.5,
       delay: 0.2,
       type: 'spring',
-      bounce: 0.4,
+      bounce: 0,
     },
   },
 };
