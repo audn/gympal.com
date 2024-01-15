@@ -30,14 +30,18 @@ function Section({
   imageClass?: string;
 }) {
   return (
-    <div className="grid grid-cols-2 bg-types-100 rounded-2xl overflow-hidden">
-      <div className="relative p-12">
-        <div className="text-on-100 text-2xl font-medium leading-[40px]">
-          <h1 className="inline text-white font-semibold">{title}</h1>
-          <h2 className="inline">&nbsp;{text}</h2>
+    <div className="md:grid grid-cols-2 md:bg-types-100 rounded-2xl overflow-hidden">
+      <div className="relative md:p-12">
+        <div className="text-on-100 leading-[27px] flex flex-col md:inline gap-5 md:leading-[40px]">
+          <h1 className="md:inline text-[30px] md:text-2xl text-white md:font-medium md:mr-2">
+            {title}
+          </h1>
+          <h2 className="md:inline md:font-medium text-lg md:text-2xl">
+            {text}
+          </h2>
         </div>
         {title == 'Customizable meal sizes.' ? (
-          <div className="absolute bottom-24 flex right-[10%] z-20">
+          <div className="hidden md:flex absolute bottom-40 right-[10%] z-20">
             <div className="px-4 py-2 bg-[#2C2C2E] flex-col  max-w-xs rounded-xl flex ">
               <div className="text-sm font-bold text-types-fat uppercase">
                 <i className="fa-solid fa-info-circle mr-2" /> Bonus
@@ -51,26 +55,32 @@ function Section({
         ) : null}
       </div>
       <div
-        style={{ backgroundColor: color }}
-        className={'relative flex items-center flex-col justify-center'}
+        style={{ backgroundColor: `${color}` }}
+        className={`mt-10 md:mt-0  rounded-3xl md:rounded-none`}
       >
-        {title == 'Customizable meal sizes.' ? (
-          <>
-            <div className="mb-12 gap-2 py-10 items-center justify-center flex flex-wrap w-[400px]"></div>
-            <div className="relative">
-              <Arrow className="absolute z-10 -left-[65%] bottom-[30%]" />
+        <div
+          className={
+            'bg-types-100 px-12 py-6  overflow-hidden md:overflow-visible !rounded-xl md:bg-inherit relative flex items-center flex-col justify-center'
+          }
+        >
+          {title == 'Customizable meal sizes.' ? (
+            <>
+              <div className="hidden md:flex md:mb-12 md:gap-2 md:py-10 items-center justify-center flex-wrap md:w-[400px]"></div>
+              <div className="relative">
+                <Arrow className="hidden md:flex absolute z-10 -left-[65%] bottom-[30%]" />
+                <Phone source={image} className={imageClass} />
+              </div>
+            </>
+          ) : title == 'Present moment is history.' ? (
+            <div className="md:p-10 flex items-center flex-col justify-center">
               <Phone source={image} className={imageClass} />
             </div>
-          </>
-        ) : title == 'Present moment is history.' ? (
-          <div className="p-10 flex items-center flex-col justify-center">
-            <Phone source={image} className={imageClass} />
-          </div>
-        ) : (
-          <div className="p-10 pb-24 pt-0  flex items-center flex-col justify-center">
-            <Phone source={image} className={imageClass} />
-          </div>
-        )}
+          ) : (
+            <div className="md:p-10 md:pb-24 pt-0  flex items-center flex-col justify-center">
+              <Phone source={image} className={imageClass} />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

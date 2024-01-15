@@ -16,6 +16,7 @@ const Phone = ({
         width="341"
         height="711"
         viewBox="0 0 341 711"
+        className="phone"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >

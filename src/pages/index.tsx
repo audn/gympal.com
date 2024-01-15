@@ -16,7 +16,7 @@ function Phone() {
       variants={scaleIn}
       className="col-span-4 px-3 z-40 "
     >
-      <div className="relative inline-block mb-[-300px] lg:mb-0 xl:mt-[-150px] phone ">
+      <div className="relative inline-block mb-[-300px] lg:mb-0 lg:mt-[-100px] xl:mt-[-150px] phone ">
         <img
           src={`/phone.png`}
           className="h-auto w-phone-md lg:w-phone-lg xl:w-phone-xl relative mx-auto z-50"
@@ -92,7 +92,7 @@ function Hero() {
                 },
               },
             }}
-            className="absolute left-[-350px] -translate-x-1/2"
+            className="absolute left-[-640px] lg:left-[-350px] -translate-x-1/2"
           >
             <Light />
           </motion.div>
@@ -129,35 +129,40 @@ function Index() {
   return (
     <main className={'h-full '}>
       <Hero />
-      <div className="min-h-screen flex flex-col pb-24 bg-[#0c0c0c]">
+      <div className="min-h-screen flex flex-col px-6 pb-24 bg-[#0c0c0c]">
         <a id="features" />
         <Intro />
         <div className="max-w-6xl flex flex-col space-y-10 mx-auto">
+          <hr className="md:hidden" />
           <Section
             title="Customizable meal sizes."
             text="Easily create and manage different meal sizes with different portions or products."
             image="mealsize.png"
             color={'#55AE72'}
-            imageClass=" -mb-[40%] scale-125"
+            imageClass="md:-mb-[40%] md:scale-125 mb-[-70%] "
           />
+          <hr className="md:hidden" />
           <Section
             title="Present moment is history."
             text="You can look back at it whenever you’d like to."
             color={'#FCC745'}
             image="nutrition2.png"
+            imageClass="mb-[-70%] md:mb-0"
           />
+          <hr className="md:hidden" />
           <Section
             title="Do you remember how many grams a slice of bread is?"
             text="No worries. With Gympal you can create custom
                       servings for every food."
             color={'#2F80ED'}
             image="customsize.png"
-            imageClass="-mt-[97%] scale-110"
+            imageClass="-mt-[97%] md:scale-110 "
           />
           <p className="text-sm text-on-100 !mt-4 !my-0 text-center">
             + many many more features
           </p>
           {/* <Waitlist /> */}
+          <hr className="md:hidden" />
           <Footer />
         </div>
       </div>

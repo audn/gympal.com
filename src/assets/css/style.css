@@ -13,6 +13,9 @@ body {
 .shadowww {
   box-shadow: 0px 0px 100px -5px #090909;
 }
+hr {
+  border-color: #1c1c1e;
+}
 .shadow-light {
   border-radius: 148.5px 183.5px 148.5px 148.5px;
   background: #2d2d2f;
@@ -20,7 +23,11 @@ body {
   mix-blend-mode: screen;
   filter: blur(125px);
 }
-
+.phone {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
 .fadeInRight {
   -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
