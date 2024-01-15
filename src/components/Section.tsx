@@ -60,7 +60,7 @@ function Section({
       >
         <div
           className={
-            'bg-types-100 px-12 py-6  overflow-hidden md:overflow-visible !rounded-xl md:bg-inherit relative flex items-center flex-col justify-center'
+            'bg-[#121212] md:bg-types-100 px-12 py-6  overflow-hidden md:overflow-visible !rounded-xl md:bg-inherit relative flex items-center flex-col justify-center'
           }
         >
           {title == 'Customizable meal sizes.' ? (

@@ -59,9 +59,27 @@ function Hero() {
       className="overflow-hidden pt-[80px] flex-col items-center lg:pt-0 border-b border-types-100 flex  bg-gradient-to-t from-types-50 to-[#101010] "
     >
       <div className="max-h-screen px-6 max-w-6xl min-h-screen flex items-center lg:items-end xl:mr-[-118px] flex-col lg:flex-row">
-        <h1 className="text-4xl md:text-6xl lg:hidden py-12 font-medium flex items-center text-center justify-evenly ">
-          Your new favorite fitness app😎
-        </h1>{' '}
+        <motion.div
+          animate="enter"
+          exit="exit"
+          initial="initial"
+          variants={{
+            initial: { opacity: 0, y: 0 },
+            enter: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                type: 'tween',
+                duration: 1,
+                delay: 1,
+              },
+            },
+          }}
+        >
+          <h1 className="text-4xl md:text-6xl lg:hidden py-12 font-medium flex items-center text-center justify-evenly ">
+            Your new favorite fitness app😎
+          </h1>
+        </motion.div>
         <div className="flex lg:top-[100px] xl:top-[120px] items-start relative">
           <motion.div
             className="z-30 pt-[100px] hidden lg:flex"

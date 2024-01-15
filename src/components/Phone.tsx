@@ -29,7 +29,7 @@ const Phone = ({
       </svg>
       <div className="phone__content" style={{}}>
         <div
-          className="rounded-[45px]"
+          className="rounded-[5%] md:rounded-[45px]"
           style={{
             background: `url("/${source}") center center / cover no-repeat`,
             width: '100%',
