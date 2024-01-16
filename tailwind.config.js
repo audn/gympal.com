@@ -8,13 +8,18 @@ module.exports = {
       height: {
         'fit-content': 'fit-content',
       },
-      colors,
-      screens: {
-        'xs': '475px',
-        'xxs': '240px',
-        'md-plus': '870px',
-        '1xl': '1500px',
+      width: {
+        'phone-md': '400px',
+        'phone-lg': '450px',
+        'phone-xl': '500px',
       },
+      colors,
+      // screens: {
+      //   'xs': '475px',
+      //   'xxs': '240px',
+      //   'md-plus': '870px',
+      //   '1xl': '1500px',
+      // },
     },
   },
   variants: {

@@ -3,7 +3,7 @@ import { NextSeoProps } from 'next-seo';
 export default {
   title: 'Gympal | Calorie Counter',
   description:
-    'The improved app to effortlessly switch between your diet preferences.',
+    'An all-in-one app designed to track your diet, workout sessions and bodyweight.',
   openGraph: {
     type: 'website',
     locale: 'en_IE',
