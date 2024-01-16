@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://align-items.center
+Host: https://gympal.com
 
 # Sitemaps
-Sitemap: https://align-items.center/sitemap.xml
+Sitemap: https://gympal.com/sitemap.xml

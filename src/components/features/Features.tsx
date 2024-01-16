@@ -40,7 +40,7 @@ function Features() {
   ];
   return (
     <div className="grid grid-cols-3 gap-5 overflow-hidden">
-      {cols.map((x, i) => (
+      {cols.map((x) => (
         <div
           key={x.title}
           className={concat(
