@@ -7,7 +7,7 @@ function Error({ message }: { message: string }) {
     return <div className="text-red-500 text-sm mt-3">{message}</div>;
   } else return <></>;
 }
-function Waitlist() {
+function Waitlist({ scanned }: { scanned?: boolean }) {
   const [email, setEmail] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
@@ -16,7 +16,7 @@ function Waitlist() {
     event.preventDefault();
     try {
       setIsLoading(true);
-      const data = await joinWaitlist(email);
+      const data = await joinWaitlist(email, scanned);
       console.log('data', data);
       if (data) {
         setIsSuccess(true);

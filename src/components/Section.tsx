@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Phone from './Phone';
 function Arrow({ className }: { className?: string }) {
   return (
@@ -29,6 +30,14 @@ function Section({
   color: string;
   imageClass?: string;
 }) {
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      setOffset(window.innerWidth);
+    }
+  }, []);
+
   return (
     <div className="md:grid grid-cols-2 md:bg-types-100 rounded-2xl overflow-hidden">
       <div className="relative md:p-12">
@@ -55,7 +64,7 @@ function Section({
         ) : null}
       </div>
       <div
-        style={{ backgroundColor: `${color}` }}
+        style={{ backgroundColor: offset < 750 ? 'transparent' : `${color}` }}
         className={`mt-10 md:mt-0  rounded-3xl md:rounded-none`}
       >
         <div

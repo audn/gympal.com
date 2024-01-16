@@ -61,7 +61,7 @@ function Header() {
       animate="enter"
       exit="exit"
       initial="initial"
-      variants={fadeIn}
+      variants={router.pathname == '/' ? fadeIn : undefined}
       className={concat(
         isHomepage
           ? concat(
