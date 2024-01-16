@@ -50,13 +50,11 @@ function Header() {
   const handleScroll = () => setOffsetY(window.pageYOffset);
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const router = useRouter();
   const isHomepage = router?.asPath == '/';
-  console.log(router);
 
   return (
     <motion.header

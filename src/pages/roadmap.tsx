@@ -2,7 +2,7 @@
 
 function Roadmap() {
   return (
-    <main className={'h-full pt-[80px]'}>
+    <main className={'h-full pt-[71px] md:pt-[80px]'}>
       <div className="bg-[#121212] p-6 py-12">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-3xl font-medium">Roadmap</h1>
