@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { DefaultSeo } from 'next-seo';
 import { AppProps } from 'next/app';
 import SEO from '../../next-seo.config';
@@ -10,6 +11,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
       <DefaultSeo {...SEO} />
       <Header />
       <Component {...pageProps} key={router.route} />
+      <Analytics />
     </>
   );
 }
