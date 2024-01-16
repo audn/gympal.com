@@ -59,7 +59,6 @@ function Header() {
   return (
     <motion.header
       animate="enter"
-      exit="exit"
       initial="initial"
       variants={router.pathname == '/' ? fadeIn : undefined}
       className={concat(
