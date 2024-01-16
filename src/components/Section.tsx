@@ -32,11 +32,11 @@ function Section({
   return (
     <div className="md:grid grid-cols-2 md:bg-types-100 rounded-2xl overflow-hidden">
       <div className="relative md:p-12">
-        <div className="text-on-100 leading-[27px] flex flex-col md:inline gap-5 md:leading-[40px]">
-          <h1 className="md:inline text-[30px] md:text-2xl text-white md:font-medium md:mr-2">
+        <div className="text-on-100  flex flex-col md:inline gap-5">
+          <h1 className="md:inline text-[30px] md:text-2xl text-white md:font-medium md:mr-2 leading-[35px]  md:leading-[40px]">
             {title}
           </h1>
-          <h2 className="md:inline md:font-medium text-lg md:text-2xl">
+          <h2 className="md:inline md:font-medium text-lg md:text-2xl leading-[27px] md:leading-[40px]">
             {text}
           </h2>
         </div>

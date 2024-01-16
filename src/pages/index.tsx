@@ -147,7 +147,7 @@ function Index() {
   return (
     <main className={'h-full '}>
       <Hero />
-      <div className="min-h-screen flex flex-col px-6 pb-24 bg-[#0c0c0c]">
+      <div className="min-h-screen flex flex-col px-6 pb-6 md:pb-24 bg-[#0c0c0c]">
         <a id="features" />
         <Intro />
         <div className="max-w-6xl flex flex-col space-y-10 mx-auto">
