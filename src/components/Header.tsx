@@ -54,13 +54,22 @@ function Header() {
   }, []);
 
   const router = useRouter();
-  const isHomepage = router?.asPath == '/';
+  const isHomepage = router?.pathname == '/';
 
   return (
     <motion.header
       animate="enter"
       initial="initial"
-      variants={router.pathname == '/' ? fadeIn : undefined}
+      variants={
+        router.pathname == '/'
+          ? fadeIn
+          : {
+              initial: { opacity: 1 },
+              enter: {
+                opacity: 1,
+              },
+            }
+      }
       className={concat(
         isHomepage
           ? concat(
