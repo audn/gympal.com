@@ -9,7 +9,9 @@ export default function App({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <DefaultSeo {...SEO} />
+      {/* {router.asPath !== '/download' ? */}
       <Header />
+      {/* : null} */}
       <Component {...pageProps} key={router.route} />
       <Analytics />
     </>

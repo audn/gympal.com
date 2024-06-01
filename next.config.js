@@ -5,6 +5,11 @@ module.exports = {
   async redirects() {
     return [
       {
+        source: '/ios',
+        destination: 'https://testflight.apple.com/join/XwvjHf7w',
+        permanent: true,
+      },
+      {
         source: '/(.*)/components/(.*)',
         destination: '/',
         permanent: true,

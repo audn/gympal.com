@@ -1,5 +1,3 @@
-6;
-
 function Roadmap() {
   return (
     <main className={'h-full pt-[71px] md:pt-[80px]'}>
