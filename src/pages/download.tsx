@@ -1,3 +1,4 @@
+import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import { useState } from 'react';
 import Waitlist from '../components/Waitlist';
@@ -11,6 +12,7 @@ function Roadmap() {
   ];
   return (
     <main className={'h-full '}>
+      <NextSeo title="Gympal | Join beta" />
       <div className="px-6 min-h-screen flex items-center justify-center">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl font-bold ">Welcome to Beta!</h1>
