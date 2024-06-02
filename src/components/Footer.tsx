@@ -10,7 +10,7 @@ function Footer() {
     },
     {
       title: 'Facebook',
-      route: 'https://facebook.com/trygympal',
+      route: 'https://facebook.com/gympalcom',
       icon: 'fa-brands fa-facebook',
     },
     {
