@@ -32,7 +32,7 @@ function Intro() {
         </h2>
         <Waitlist />
         <p className="text-on-100 text-sm mt-6">
-          Invitation will be sent in the First Quarter (Q1) of 2024.
+          Invitations will be sent in the third quarter (Q3) of 2024.
         </p>
       </motion.div>
     </div>

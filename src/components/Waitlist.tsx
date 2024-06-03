@@ -75,7 +75,7 @@ function Waitlist({ scanned }: { scanned?: boolean }) {
             }}
           >
             You're on the list!{' '}
-            <a
+            {/* <a
               rel="noopener noreferrer"
               className="border-b-2 border-types-150 pb"
               href="https://twitter.com/gympalcom"
@@ -83,7 +83,7 @@ function Waitlist({ scanned }: { scanned?: boolean }) {
             >
               Stay updated on Twitter
               <i className="fa-brands fa-twitter ml-1" />
-            </a>
+            </a> */}
           </motion.div>
         ) : null}
         <Error message={error} />
