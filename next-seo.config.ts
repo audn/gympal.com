@@ -1,9 +1,13 @@
 import { NextSeoProps } from 'next-seo';
 
 export default {
-  title: 'Gympal | Calorie Counter',
+  title: 'Gympal – Your Fitness Journey Partner for Nutrition and Workouts',
+  //   title: 'Gympal – Join Friends and Track Your Fitness Journey',
   description:
-    'An all-in-one app designed to track your diet, workout sessions and bodyweight.',
+    //     'Join Gympal, the comprehensive app for tracking nutrition and exercises, connecting with friends and achieve your fitness goals together.',
+    'Experience the best of fitness tracking with Gympal. Monitor your nutrition and exercises, connect with friends, and stay motivated by becoming gympals.',
+  //   description:
+  //     'Gympal helps you track your nutrition and exercises effortlessly. Monitor your diet, workouts, and progress to stay on track with your fitness goals.',
   openGraph: {
     type: 'website',
     images: [
