@@ -47,7 +47,7 @@ function Meal() {
           </h3>
         </div>
         <div className="space-y-2 w-full mt-12">
-          {Array.from({ length: 2 }).map((x) => (
+          {Array.from({ length: 2 }).map(() => (
             <MealCard />
           ))}
         </div>
