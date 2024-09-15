@@ -3,7 +3,10 @@
     "apps": [],
     "details": [
       {
-        "appID": "3NY4FNDG5P.com.gympal.app",
+        "appIDs": [
+          "3NY4FNDG5P.com.gympal.app",
+          "3NY4FNDG5P.com.audn.gympal.dev"
+        ],
         "paths": [
           "/shared/*"
         ]
