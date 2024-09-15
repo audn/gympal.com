@@ -1,0 +1,23 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "3NY4FNDG5P.com.gympal.app",
+        "paths": [
+          "/shared/*"
+        ]
+      }
+    ]
+  },
+  "activitycontinuation": {
+    "apps": [
+      "3NY4FNDG5P.com.gympal.app"
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "3NY4FNDG5P.com.gympal.app"
+    ]
+  }
+}
