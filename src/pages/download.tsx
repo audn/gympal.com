@@ -4,12 +4,29 @@ import { useState } from 'react';
 import Waitlist from '../components/Waitlist';
 import concat from '../concat';
 
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import { axios } from '../lib/axios';
+
 function Roadmap() {
+  const router = useRouter();
   const [platform, setPlatform] = useState<string>('');
   const platforms = [
     { name: 'iPhone', icon: 'fa-brands fa-apple' },
     { name: 'Android', icon: 'fa-brands fa-android' },
   ];
+
+  useEffect(() => {
+    const sendCurrentUrl = async () => {
+      await axios.get(
+        `/_event/mail?path=${router.pathname}&mail=${router.query.ref}`,
+      );
+    };
+    if (router.query.ref) {
+      sendCurrentUrl();
+    }
+  }, [router.query.ref]);
+
   return (
     <main className={'h-full '}>
       <NextSeo title="Gympal | Join beta" />
