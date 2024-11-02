@@ -71,10 +71,10 @@ function Roadmap() {
               </h2>
               <Waitlist text="Submit" platform="ANDROID" />
               <p className="text-on-100 text-sm mt-6">
-                Google requires us to have at least 20 testers for 14 days
-                before we can release the app to everyone. Please enter your
-                email so we can add you to our tester list. You'll receive an
-                invite link within 12 hours.
+                Google requires us to manually add at least 20 testers for 14
+                days before we can release the app to everyone. Please enter
+                your email so we can add you to our tester list. You'll receive
+                an invite link within 12 hours.
               </p>
             </div>
           )}
