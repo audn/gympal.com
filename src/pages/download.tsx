@@ -69,7 +69,7 @@ function Roadmap() {
               <h2 className="text-on-100 md:text-lg mt-6 -mb-5">
                 We need your email to invite you to the Android beta.
               </h2>
-              <Waitlist platform="ANDROID" />
+              <Waitlist text="Submit" platform="ANDROID" />
               <p className="text-on-100 text-sm mt-6">
                 Google requires us to have at least 20 testers for 14 days
                 before we can release the app to everyone. Please enter your
