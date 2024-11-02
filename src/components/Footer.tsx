@@ -46,7 +46,8 @@ function Footer() {
         <div className="flex flex-col space-y-5 lg:space-y-0 sm:flex-row justify-between item-center w-full">
           <div className="flex flex-col">
             <span className="text-on-100 text-center sm:text-left">
-              &copy; {new Date().getFullYear()} Gympal
+              &copy; {new Date().getFullYear()} Gympal &bull;{' '}
+              <Link href="/privacy">Privacy</Link>
             </span>
             <div className="flex flex-col items-center md:flex-row space-y-2 md:space-y-0 md:space-x-5 mt-3">
               <a href="mailto:audun@gympal.com">
