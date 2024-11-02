@@ -56,7 +56,10 @@ function Meal() {
         {/* <a href="gympal://shared/meal/123"> */}
         <a
           className="w-full"
-          href={`exp+gympal://shared/meal/cm0txmily0006wk7ch7xgrlda`}
+          // href="3NY4FNDG5P.com.audn.gympal://shared/meal/123"
+          // href="3NY4FNDG5P.com.gympal.app://shared/meal/123"
+          // href="gympal://shared/meal/123"
+          href={`exp+gympal://shared/meal/clqbhm6h50044d0su66rqtqn3`}
         >
           <button className="bg-white text-black font-bold mt-24 w-full py-4 rounded-full ">
             Open in app

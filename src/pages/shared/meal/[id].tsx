@@ -1,9 +1,26 @@
-import Link from 'next/link';
+import { getMeal, Meal } from '@/src/hooks/meals';
+import { Star } from 'lucide-react';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { NextSeo } from 'next-seo';
 
-function MealCard() {
+function MealCard({ data }: { data: Meal['sizes'][number] }) {
+  const totalMacros = data?.entries.reduce(
+    (acc, entry) => {
+      const { macros } = entry.foodProduct;
+      const { quantity } = entry.servingSize;
+
+      acc.calories += (macros.calories || 0) * quantity;
+      acc.protein += (macros.protein || 0) * quantity;
+      acc.fat += (macros.fat || 0) * quantity;
+      acc.carbohydrates += (macros.carbohydrates || 0) * quantity;
+
+      return acc;
+    },
+    { calories: 0, protein: 0, fat: 0, carbohydrates: 0 },
+  );
   return (
     <div className="w-full flex items-center">
-      <div className="w-[70px] flex items-center justify-center h-[70px] bg-[#1C1C1C]">
+      <div className="w-[70px] flex shrink-0 items-center justify-center h-[70px] bg-[#1C1C1C]">
         <svg
           width="33"
           height="33"
@@ -18,45 +35,98 @@ function MealCard() {
         </svg>
       </div>
       <div className="px-4 flex flex-col">
-        <h3>post workout meal</h3>
-        <div className="text-[#EBEBF5]/60">612 cal &bull; 52P 2F 23C</div>
+        <h3 className="font-medium flex items-center">
+          {data?.name}{' '}
+          {data?.default ? (
+            <Star className="w-4 h-4 ml-2" fill={'#27AE60'} color={'#27AE60'} />
+          ) : null}
+        </h3>
+        <div className="text-[#EBEBF5]/60 font-apple text-[15px] tracking-wide">
+          {totalMacros?.calories} kcal &bull; {totalMacros?.protein}
+          <span className="font-semibold text-white/70">P</span>{' '}
+          {totalMacros?.fat}
+          <span className="font-semibold text-white/70">F</span>{' '}
+          {totalMacros?.carbohydrates}
+          <span className="font-semibold text-white/70">C</span>
+        </div>
       </div>
     </div>
   );
 }
-function Meal() {
+function MealScreen({ meal }: { meal: Meal }) {
+  const defaultSize = meal.sizes?.find((x) => x.default)!;
+  const otherSizes = meal.sizes?.filter((x) => !x.default);
   return (
-    <div className="bg-[#171717] min-h-screen flex items-center justify-center">
-      <Link href={'/'}>
-        <button className="flex items-center fixed top-4">
-          <h1 className="text-sm font-semibold flex items-center">
-            <img src="/icon-cut.png" className="w-6" />
-            {/* <img src="/favicon/apple-touch-icon.png" className="w-10 h-10" />{' '} */}
-            Gympal
+    <div className="bg-[#171717] min-h-screen justify-center flex flex-col items-center">
+      <NextSeo
+        title={`${meal.name} | Gympal`}
+        description={`${meal.user?.displayName} shared a meal with you on Gympal!`}
+      />
+
+      <div className="flex flex-col items-center justify-between px-5 w-full max-w-[450px] h-full mt-24 mb-24">
+        <div className="flex flex-col items-center text-start md:text-center mb-10">
+          {/* <h1 className="text-[36px] font-medium font-apple font text-[#ECECEF]/60"> */}
+          <h1 className="text-[30px] font-medium font-apple font text-[#ECECEF]/60">
+            {meal?.user?.displayName} shared "
+            <span className="text-white">{meal?.name}</span>" with you!
           </h1>
-        </button>
-      </Link>
-      <div className="px-5 w-[390px] h-full items-center justify-center flex flex-col">
-        <div className="flex flex-col items-center justify-center">
-          <img
-            src="https://i.imgur.com/4yuSgOw.jpeg"
-            className="rounded-full w-[62px] mb-4"
-          />
-          <h3 className="px-10 text-3xl font-bold text-center">
-            Audun shared two meals with you!
-          </h3>
         </div>
-        <div className="space-y-2 w-full mt-12">
-          {Array.from({ length: 2 }).map(() => (
-            <MealCard />
-          ))}
+
+        <div className="w-full flex-grow overflow-y-auto space-y-10 pb-20">
+          <div>
+            {/* {otherSizes.length ? (
+              <h3 className="font-apple text-white/80 text-[19px] font-semibold mb-2">
+                Main meal:
+              </h3>
+            ) : null} */}
+            <div className="w-full flex-grow overflow-y-auto space-y-2">
+              <MealCard data={{ ...defaultSize, name: meal.name }} />
+            </div>
+          </div>
+          {otherSizes?.length ? (
+            <div>
+              <h3 className="font-apple text-white/80 text-[19px] font-semibold mb-2">
+                Included meal sizes:
+                {/* ({otherSizes?.length}) */}
+              </h3>
+              <div className="w-full flex-grow overflow-y-auto space-y-2">
+                {otherSizes?.map((x) => (
+                  <MealCard data={x} key={x.id} />
+                ))}
+              </div>
+            </div>
+          ) : null}
         </div>
-        <button className="bg-white text-black font-bold mt-24 w-full py-4 rounded-full ">
-          Open in app
-        </button>
+      </div>
+      <div className="fixed bottom-10 px-5 w-full max-w-[450px]">
+        <a href={`exp+gympal://shared/meal/${meal.id}`} className="w-full">
+          <button className="bg-white text-black font-bold font-apple w-full py-4 rounded-full">
+            Open meal in app
+          </button>
+        </a>
       </div>
     </div>
   );
 }
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const mealId = (ctx.params?.id || '') as string;
 
-export default Meal;
+  const data = await getMeal(mealId);
+
+  if (!data.payload) {
+    return {
+      notFound: true,
+      revalidate: 10,
+    };
+  }
+
+  return {
+    props: { meal: data.payload },
+    revalidate: 5,
+  };
+};
+
+export const getStaticPaths: GetStaticPaths = () =>
+  Promise.resolve({ paths: [], fallback: 'blocking' });
+
+export default MealScreen;

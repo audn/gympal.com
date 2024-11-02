@@ -20,8 +20,10 @@ function NavItems({ router }: { router: NextRouter }) {
     { label: 'About', anchor: '/' },
     { label: 'Features', anchor: '/#features' },
     { label: 'Roadmap', anchor: '/roadmap' },
-    //     { label: 'Team', anchor: '/team ' },
+    // { label: 'Team', anchor: '/team' },
   ];
+  // console.log(router);
+
   return (
     <>
       {route.map((x) => {
@@ -55,6 +57,7 @@ function Header() {
 
   const router = useRouter();
   const isHomepage = router?.pathname == '/';
+  const isShared = router?.pathname.includes('/shared');
 
   return (
     <motion.header
@@ -80,15 +83,25 @@ function Header() {
                 ? 'bg-[#0c0c0c]/50 border-[#0c0c0c] '
                 : 'border-transparent bg-transparent',
             )
+          : isShared
+          ? 'bg-[#171717] border-transparent'
           : 'border-[#161616] bg-[#0F0F0F]',
         'flex items-center justify-center fixed transition-all ease-out duration-200 top-0 inset-x-0 z-50 border-b px-6',
       )}
     >
       <div className="h-[71px] md:h-[80px] w-full max-w-6xl mx-auto flex items-center justify-between">
+        {/* <Link href={'/'} className="flex items-center">
+          <button className="flex items-center">
+            <h1 className="text-xl font-medium flex items-center">
+              <img src="/icon-cut.png" className="w-10 h-10 mr-2" />
+              Gympal
+            </h1>
+          </button>
+        </Link> */}
         <Link href={'/'} className="flex items-center">
           <button className="flex items-center">
-            <img src="/favicon/apple-touch-icon.png" className="w-6 h-6 mr-2" />
-            <h3 className="font-medium">Gympal</h3>
+            <img src="/logo-text-white.svg" className="w-24 mr-2" />
+            {/* <h3 className="font-medium md:text-xl">Gympal</h3> */}
           </button>
         </Link>
         <nav className="flex sm:hidden">

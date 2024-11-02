@@ -16,6 +16,10 @@ body {
 hr {
   border-color: #1c1c1e;
 }
+.font-apple {
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
 .shadow-light {
   border-radius: 148.5px 183.5px 148.5px 148.5px;
   background: #2d2d2f;

@@ -7,6 +7,7 @@ export default class extends Document {
       <Html lang="en">
         <Head>
           <meta name="application-TileColor" content="#000" />
+          {/* <meta name="apple-itunes-app" content="app-id=6468906558" /> */}
           <meta name="theme-color" content="#000" />
           <link rel="shortcut icon" href="/favicon/favicon.ico" />
           <Script
