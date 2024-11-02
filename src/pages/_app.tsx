@@ -9,7 +9,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <DefaultSeo {...SEO} />
-      {!router.asPath.includes('/shared') ? <Header /> : null}
+      <Header />
       <Component {...pageProps} key={router.route} />
       <Analytics />
     </>

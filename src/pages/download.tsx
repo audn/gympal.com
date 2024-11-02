@@ -4,12 +4,29 @@ import { useState } from 'react';
 import Waitlist from '../components/Waitlist';
 import concat from '../concat';
 
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 function Roadmap() {
+  const router = useRouter();
   const [platform, setPlatform] = useState<string>('');
   const platforms = [
     { name: 'iPhone', icon: 'fa-brands fa-apple' },
     { name: 'Android', icon: 'fa-brands fa-android' },
   ];
+
+  useEffect(() => {
+    const sendCurrentUrl = async () => {
+      await fetch(
+        `${API_URL}/_event/mail?path=${router.pathname}&mail=${router.query.ref}`,
+      );
+    };
+    if (router.query.ref) {
+      sendCurrentUrl();
+    }
+  }, [router.query.ref]);
+
   return (
     <main className={'h-full '}>
       <NextSeo title="Gympal | Join beta" />
@@ -52,12 +69,12 @@ function Roadmap() {
               <h2 className="text-on-100 md:text-lg mt-6 -mb-5">
                 We need your email to invite you to the Android beta.
               </h2>
-              <Waitlist platform="ANDROID" />
+              <Waitlist text="Submit" platform="ANDROID" />
               <p className="text-on-100 text-sm mt-6">
-                Google requires us to have at least 20 testers for 14 days
-                before we can release the app to everyone. Please enter your
-                email so we can add you to our tester list. You'll receive an
-                invite link within 12 hours.
+                Google requires us to manually add at least 20 testers for 14
+                days before we can release the app to everyone. Please enter
+                your email so we can add you to our tester list. You'll receive
+                an invite link within 12 hours.
               </p>
             </div>
           )}

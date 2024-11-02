@@ -10,8 +10,10 @@ function Error({ message }: { message: string }) {
 function Waitlist({
   scanned,
   platform,
+  text,
 }: {
   scanned?: boolean;
+  text?: string;
   platform?: 'IOS' | 'ANDROID';
 }) {
   const [email, setEmail] = useState<string>('');
@@ -59,6 +61,8 @@ function Waitlist({
                 <i className="text-lg mr-2 fa-solid fa-check" />
                 Added{' '}
               </div>
+            ) : text ? (
+              text
             ) : (
               ' Join Waitlist'
             )}
@@ -80,7 +84,7 @@ function Waitlist({
               },
             }}
           >
-            You're on the list!{' '}
+            {text ? "We'll be in touch!" : "You're on the list!"}{' '}
             {/* <a
               rel="noopener noreferrer"
               className="border-b-2 border-types-150 pb"
