@@ -6,7 +6,7 @@ import concat from '../concat';
 
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { axios } from '../lib/axios';
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 function Roadmap() {
   const router = useRouter();
@@ -18,8 +18,8 @@ function Roadmap() {
 
   useEffect(() => {
     const sendCurrentUrl = async () => {
-      await axios.get(
-        `/_event/mail?path=${router.pathname}&mail=${router.query.ref}`,
+      await fetch(
+        `${API_URL}/_event/mail?path=${router.pathname}&mail=${router.query.ref}`,
       );
     };
     if (router.query.ref) {
