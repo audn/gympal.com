@@ -44,7 +44,7 @@ function Waitlist({
       <div className="flex flex-col w-full">
         <form
           onSubmit={onAttemptJoinWaitlist}
-          className="space-y-3 mt-10 md:w-[300px] items-center"
+          className="space-y-3 mt-10 md:w-[400px] items-center"
         >
           <input
             className="bg-types-100 h-[44px] outline-none w-full  rounded-xl px-6 py-2"

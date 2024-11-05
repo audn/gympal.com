@@ -20,6 +20,7 @@ function NavItems({ router }: { router: NextRouter }) {
     { label: 'About', anchor: '/' },
     { label: 'Features', anchor: '/#features' },
     { label: 'Roadmap', anchor: '/roadmap' },
+    { label: 'Download', anchor: '/download' },
     // { label: 'Team', anchor: '/team' },
   ];
   // console.log(router);

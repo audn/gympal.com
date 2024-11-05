@@ -30,7 +30,7 @@ function Roadmap() {
   return (
     <main className={'h-full '}>
       <NextSeo title="Gympal | Join beta" />
-      <div className="px-6 min-h-screen flex items-center justify-center">
+      <div className="px-6 min-h-screen flex w-full md:max-w-[400px] mx-auto items-center justify-center">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl font-bold ">Welcome to Beta!</h1>
           <p className="text-xl mt-6 text-white/60">Select platform below:</p>
