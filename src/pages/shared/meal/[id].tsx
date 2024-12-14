@@ -4,20 +4,42 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 
 function MealCard({ data }: { data: Meal['sizes'][number] }) {
-  const totalMacros = data?.entries.reduce(
-    (acc, entry) => {
-      const { macros } = entry.foodProduct;
-      const { quantity } = entry.servingSize;
-
-      acc.calories += (macros.calories || 0) * quantity;
-      acc.protein += (macros.protein || 0) * quantity;
-      acc.fat += (macros.fat || 0) * quantity;
-      acc.carbohydrates += (macros.carbohydrates || 0) * quantity;
-
-      return acc;
-    },
-    { calories: 0, protein: 0, fat: 0, carbohydrates: 0 },
-  );
+  let totalMacros = { calories: 0, protein: 0, carbohydrates: 0, fat: 0 };
+  const entries = data?.entries;
+  if (entries && entries.length > 0) {
+    totalMacros = entries.reduce(
+      (acc, entry) => {
+        const entryMacros = entry?.foodProduct?.macros;
+        return {
+          calories:
+            (acc.calories || 0) +
+            ((entryMacros.calories || 0) *
+              entry.servingSize?.quantity *
+              entry.servingSize?.gramWeight) /
+              100,
+          protein:
+            (acc.protein || 0) +
+            ((entryMacros.protein || 0) *
+              entry.servingSize?.quantity *
+              entry.servingSize?.gramWeight) /
+              100,
+          carbohydrates:
+            (acc.carbohydrates || 0) +
+            ((entryMacros.carbohydrates || 0) *
+              entry.servingSize?.quantity *
+              entry.servingSize?.gramWeight) /
+              100,
+          fat:
+            (acc.fat || 0) +
+            ((entryMacros.fat || 0) *
+              entry.servingSize?.quantity *
+              entry.servingSize?.gramWeight) /
+              100,
+        };
+      },
+      { calories: 0, protein: 0, carbohydrates: 0, fat: 0 },
+    );
+  }
   return (
     <div className="w-full flex items-center">
       <div className="w-[70px] flex shrink-0 items-center justify-center h-[70px] bg-[#1C1C1C]">
@@ -42,11 +64,12 @@ function MealCard({ data }: { data: Meal['sizes'][number] }) {
           ) : null}
         </h3>
         <div className="text-[#EBEBF5]/60 font-apple text-[15px] tracking-wide">
-          {totalMacros?.calories} kcal &bull; {totalMacros?.protein}
+          {totalMacros?.calories.toFixed(0)} kcal &bull;{' '}
+          {totalMacros?.protein.toFixed(0)}
           <span className="font-semibold text-white/70">P</span>{' '}
-          {totalMacros?.fat}
+          {totalMacros?.fat.toFixed(0)}
           <span className="font-semibold text-white/70">F</span>{' '}
-          {totalMacros?.carbohydrates}
+          {totalMacros?.carbohydrates.toFixed(0)}
           <span className="font-semibold text-white/70">C</span>
         </div>
       </div>
@@ -110,6 +133,7 @@ function MealScreen({ meal }: { meal: Meal }) {
 }
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const mealId = (ctx.params?.id || '') as string;
+  // const isDev = ctx.preview || ctx.previewData?.dev === true;
 
   const data = await getMeal(mealId);
 
