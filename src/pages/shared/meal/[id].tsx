@@ -89,9 +89,10 @@ function MealScreen({ meal }: { meal: Meal }) {
       <div className="flex flex-col items-center justify-between px-5 w-full max-w-[450px] h-full mt-24 mb-24">
         <div className="flex flex-col items-center text-start md:text-center mb-10">
           {/* <h1 className="text-[36px] font-medium font-apple font text-[#ECECEF]/60"> */}
-          <h1 className="text-[30px] font-medium font-apple font text-[#ECECEF]/60">
+          <h1 className="text-[30px] break-word font-medium font-apple font text-[#ECECEF]/60">
             {meal?.user?.displayName} shared "
-            <span className="text-white">{meal?.name}</span>" with you!
+            <span className="text-white break-word">{meal?.name}</span>" with
+            you!
           </h1>
         </div>
 
