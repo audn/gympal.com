@@ -3,7 +3,7 @@ import concat from '../concat';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { menu } from '../utils';
 export const fadeIn = {
   initial: { opacity: 0 },
@@ -48,49 +48,17 @@ function NavItems({ router }: { router: NextRouter }) {
   );
 }
 function Header() {
-  const [offsetY, setOffsetY] = useState(0);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const handleScroll = () => setOffsetY(window.pageYOffset);
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const router = useRouter();
-  const isHomepage = router?.pathname == '/';
-  const isShared = router?.pathname.includes('/shared');
 
   return (
-    <motion.header
-      animate="enter"
-      initial="initial"
-      variants={
-        router.pathname == '/'
-          ? fadeIn
-          : {
-              initial: { opacity: 1 },
-              enter: {
-                opacity: 1,
-              },
-            }
-      }
+    <header
       className={concat(
-        isHomepage
-          ? concat(
-              'backdrop-blur ',
-              offsetY > 750
-                ? 'bg-[#0c0c0c] border-[#161616] '
-                : offsetY > 50
-                ? 'bg-[#0c0c0c]/50 border-[#0c0c0c] '
-                : 'border-transparent bg-transparent',
-            )
-          : isShared
-          ? 'bg-[#171717] border-transparent'
-          : 'border-[#161616] bg-[#0F0F0F]',
-        'flex items-center justify-center fixed transition-all ease-out duration-200 top-0 inset-x-0 z-50 border-b px-6',
+        'flex items-center justify-center fixed transition-all ease-out duration-200 top-0 inset-x-0 z-50  px-6',
       )}
     >
-      <div className="h-[71px] md:h-[80px] w-full max-w-6xl mx-auto flex items-center justify-between">
+      <div className="h-[71px] bg-app-100 md:h-[80px] w-full max-w-6xl mx-auto flex items-center justify-between">
         {/* <Link href={'/'} className="flex items-center">
           <button className="flex items-center">
             <h1 className="text-xl font-medium flex items-center">
@@ -134,7 +102,7 @@ function Header() {
           <NavItems router={router} />
         </div>
       </div>
-    </motion.header>
+    </header>
   );
 }
 
