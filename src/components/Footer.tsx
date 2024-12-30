@@ -25,7 +25,7 @@ function Footer() {
     },
   ];
   return (
-    <div className="grid-cols-3 gap-5 sm:grid mt-24">
+    <div className="max-w-6xl mb-10 mx-auto grid-cols-3 gap-5 sm:grid mt-24">
       <div className="p-10 flex items-center justify-center bg-types-calories rounded-2xl">
         <img src="qr.png" className="w-28 rounded-xl" />
       </div>
@@ -42,14 +42,14 @@ function Footer() {
         </button>
       </Link>
 
-      <div className="col-span-3 p-6 md:p-10 flex items-center justify-center bg-types-100 rounded-2xl">
+      <div className="col-span-3 p-6 flex items-center justify-center bg-types-100 rounded-2xl">
         <div className="flex flex-col space-y-5 lg:space-y-0 sm:flex-row justify-between item-center w-full">
-          <div className="flex flex-col">
+          <div className="flex justify-between items-center w-full">
             <span className="text-on-100 text-center sm:text-left">
               &copy; {new Date().getFullYear()} Gympal &bull;{' '}
               <Link href="/privacy">Privacy</Link>
             </span>
-            <div className="flex flex-col items-center md:flex-row space-y-2 md:space-y-0 md:space-x-5 mt-3">
+            <div className="flex flex-col items-center md:flex-row space-y-2 md:space-y-0 md:space-x-5">
               <a href="mailto:audun@gympal.com">
                 <button className="bg-white self-start text-black px-3 text-sm flex items-center font-bold py-1 rounded-full">
                   <i className="fa-solid fa-envelope mr-2" /> Get in touch
@@ -69,11 +69,11 @@ function Footer() {
               </div>
             </div>
           </div>
-          <Link href={'#features'} className="">
-            <button className="bg-types-fat w-full sm:w-auto self-center text-black px-4 text-center justify-center flex items-center font-bold py-2 rounded-xl">
+          {/* <Link href={'#features'} className="">
+            <button className="bg-brand-primary-100 w-full sm:w-auto self-center text-black px-4 text-center justify-center flex items-center font-bold py-2 rounded-xl">
               Join Waitlist
             </button>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>

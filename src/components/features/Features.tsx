@@ -39,25 +39,27 @@ function Features() {
     },
   ];
   return (
-    <div className="grid grid-cols-3 gap-5 overflow-hidden">
+    <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-5 overflow-hidden">
       {cols.map((x) => (
         <div
           key={x.title}
           className={concat(
-            x.title == 'Overview' ? 'row-span-2 !justify-end' : '',
-            x.title == 'Daily Goals' ? 'w-[354px]' : '',
+            x.title == 'Overview'
+              ? 'h-[700px] sm:h-auto sm:row-span-2 !justify-end'
+              : '',
+            // x.title == 'Daily Goals' ? 'w-[354px]' : '',
             // x.title == 'Customized Sizes' ? 'h-[90%]' : '',
             // x.title == 'Track Weight' ? 'mb-6' : '',
-            'bg-types-100 p-6 max-w-[350px] flex flex-col rounded-2xl text-start justify-between',
+            'bg-types-100 p-6 sm:max-w-[350px] flex flex-col rounded-xl text-start justify-between',
           )}
         >
           {x.component}
-          {x.title !== 'Meal Sizes' && x.title !== 'Track Weight' ? (
+          {x.title !== 'Meal Sizes' &&
+          x.title !== 'Track Weight' &&
+          x.title !== 'Daily Goals' ? (
             <div className="mt-4">
-              <h3 className="font-semibold mb-1 mt-2 text-[17px]">{x.title}</h3>
-              <p className=" text-[#787880] text-[15px] font-medium">
-                {x.description}
-              </p>
+              <h3 className="font-medium mb-1 mt-2 text-[17px]">{x.title}</h3>
+              <p className=" text-[#787880] text-[15px]">{x.description}</p>
             </div>
           ) : null}
         </div>

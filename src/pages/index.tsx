@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
 import React, { FC, useEffect, useState } from 'react';
 import Features from '../components/features/Features';
+import SectionFour from '../components/features/Macros';
+import SectionTwo from '../components/features/MoreThan';
+import SectionThree from '../components/features/Servings';
 
 export default function Home() {
   const [offsetY, setOffsetY] = useState(0);
@@ -16,110 +19,210 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const text = {
-    initial: { opacity: 0, translateY: 0, scale: 0.95 },
+  const content = {
+    initial: { opacity: 0, y: 40 },
     enter: {
-      translateY: 0,
+      y: 0,
       opacity: 1,
-      scale: 1,
       transition: {
-        duration: 0.5,
-        delay: 0.2,
-        type: 'spring',
-        bounce: 0.4,
+        duration: 0.6,
+        delay: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        damping: 100,
+        stiffness: 20,
       },
     },
   };
-  console.log(offsetY);
   return (
     <main className={'h-full '}>
-      <div className="max-h-screen flex-col pt-[200px] flex relative overflow-hidden items-center">
-        <motion.div
-          className="z-30 max-w-6xl h-screen mx-auto"
-          animate="enter"
-          exit="exit"
-          initial="initial"
-          variants={text}
-          // style={{ transform: `translateY(-${offsetY * -0.2}px)` }}
-        >
-          {/* <div className="h-screen"> */}
+      <div className="px-4 bg-types-50">
+        <div className="max-h-screen  flex-col pt-[150px] flex relative overflow-hidden items-center">
+          <div
+            className="z-30 max-w-6xl h-screen mx-auto"
 
-          <h1 className="text-4xl font-bold text-white text-center ">
+            // style={{ transform: `translateY(-${offsetY * -0.2}px)` }}
+          >
+            {/* <div className="h-screen"> */}
+
+            {/* <h1 className="text-4xl font-bold text-white text-center ">
             Your new favorite fitness app
-          </h1>
-          <p className="text-center mt-4 font-regular text-xl ">
-            An all-in-one app designed to track your diet, workout sessions and
-            bodyweight.
-          </p>
-          <div className="mt-10">
-            <DownloadButtons />
-          </div>
-          {/* </div> */}
-        </motion.div>
-
-        {/* <div className="absolute z-30 top-[46%] left-0 right-0 mx-auto justify-center flex items-center -space-x-16"> */}
-
-        <motion.div
-          className="relative flex items-center mt-24 z-30 space-x-[-150px]"
-          animate="enter"
-          exit="exit"
-          initial="initial"
-          variants={{
-            initial: { opacity: 0, scale: 0.95 },
-            enter: {
-              opacity: 1,
-              scale: 1,
-              transition: {
-                duration: 0.5,
-                delay: 0.2,
-                type: 'spring',
-                bounce: 0.4,
-              },
-            },
-          }}
-          // variants={{
-          //   initial: { translateY: 1200 },
-          //   enter: {
-          //     translateY: 0,
-          //     transition: {
-          //       duration: 0.5 * (delay + 2),
-          //       delay: delay * 0.3,
-          //       type: 'spring',
-          //       bounce: 0.1,
-          //     },
-          //   },
-          // }}
-        >
-          <SwipeUpImage
-            src={`/phones/sh1.svg`}
-            delay={0.2}
-            offsetY={offsetY * 0}
-          />
-          <SwipeUpImage
-            src={`/phones/sh2.svg`}
-            delay={0.4}
-            offsetY={offsetY * -0.1}
-          />
-          <SwipeUpImage
-            src={`/phones/sh3.svg`}
-            delay={0.6}
-            offsetY={offsetY * -0.2}
-          />
-        </motion.div>
-      </div>
-      <div
-        style={{ transform: `translateY(-${offsetY * -0.5}px)` }}
-        //   className="min-h-screen p-24 text-center mx-auto bg-types-50 flex justify-center items-start"
-        className="min-h-screen py-24 text-center mx-auto border-t border-types-100 flex justify-center items-start"
-      >
-        <div className="flex flex-col">
-          <div className="mb-20">
-            <h1 className="text-3xl font-semibold text-white">
-              Track, plan, and eat better with these features.
+          </h1> */}
+            <h1 className="text-6xl max-w-sm  mx-auto font-bold text-white text-center">
+              {'Your new favorite fitness app'.split(' ').map((x, i) => (
+                <motion.span
+                  animate="enter"
+                  className="inline-block relative "
+                  exit="exit"
+                  initial="initial"
+                  variants={{
+                    initial: { opacity: 0, y: '100%', rotateX: '-45deg' },
+                    enter: {
+                      y: 0,
+                      rotateX: 0,
+                      opacity: 1,
+                      transition: {
+                        duration: 0.4,
+                        delay: 0.2 * (i / 2),
+                        ease: [0.25, 0.46, 0.45, 0.94],
+                        damping: 100,
+                        stiffness: 20,
+                      },
+                    },
+                  }}
+                >
+                  {x}&nbsp;
+                </motion.span>
+              ))}
             </h1>
+            <motion.div
+              animate="enter"
+              className="space-y-8 relative max-w-md"
+              exit="exit"
+              initial="initial"
+              variants={content}
+            >
+              <p className="text-center mt-8 font-regular text-xl ">
+                An all-in-one app designed to track your diet, workout sessions
+                and bodyweight.
+              </p>
+
+              <DownloadButtons />
+            </motion.div>
+            {/* </div> */}
           </div>
 
-          <Features />
+          {/* <div className="absolute z-30 top-[46%] left-0 right-0 mx-auto justify-center flex items-center -space-x-16"> */}
+
+          <div className="relative flex items-center mt-24 z-30 space-x-[-150px]">
+            <motion.div
+              variants={{
+                initial: {
+                  rotate: -15,
+                  opacity: 0,
+                  y: 100,
+                },
+                enter: {
+                  transition: {
+                    duration: 0.6,
+                    delay: 0.8,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    damping: 100,
+                    stiffness: 20,
+                  },
+                  rotate: 0,
+                  y: 0,
+                  opacity: 1,
+                },
+              }}
+              animate="enter"
+              initial="initial"
+            >
+              <div
+                style={{
+                  transform: `rotate3d(1, 1, 1, ${-351 + offsetY * 0.005}deg)`,
+                }}
+              >
+                <SwipeUpImage
+                  src={`/phones/sr1.svg`}
+                  delay={0.2}
+                  offsetY={offsetY * -0.1}
+                />
+              </div>
+            </motion.div>
+            <motion.div
+              className="z-20"
+              variants={{
+                initial: {
+                  opacity: 0,
+                  y: 100,
+                },
+                enter: {
+                  transition: {
+                    duration: 0.6,
+                    delay: 0.8,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    damping: 100,
+                    stiffness: 20,
+                  },
+                  y: 0,
+                  opacity: 1,
+                },
+              }}
+              animate="enter"
+              initial="initial"
+            >
+              <div
+                className="z-20"
+                style={{
+                  filter: `drop-shadow(0 0 16px rgba(0, 0, 0, 0.9))`,
+                }}
+              >
+                <SwipeUpImage
+                  src={`/phones/mid.svg`}
+                  delay={0.4}
+                  offsetY={offsetY * -0.3}
+                />
+              </div>
+            </motion.div>
+            <motion.div
+              variants={{
+                initial: {
+                  rotate: 4,
+                  y: 100,
+                  opacity: 0,
+                },
+                enter: {
+                  transition: {
+                    duration: 0.6,
+                    delay: 0.8,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    damping: 100,
+                    stiffness: 20,
+                  },
+                  rotate: 0,
+                  y: 0,
+                  opacity: 1,
+                },
+              }}
+              animate="enter"
+              initial="initial"
+            >
+              <div
+                style={{
+                  transform: `rotate3d(1, 1, 1, ${offsetY * -0.009}deg)`,
+                }}
+              >
+                <SwipeUpImage
+                  src={`/phones/sh3.svg`}
+                  delay={0.6}
+                  offsetY={offsetY * -0.2}
+                />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+      <div className="px-4 ">
+        <div className=" bg-[#101010] gap-[5.75rem] py-[6.25rem] text-center mx-auto border-t border-types-100 flex justify-center items-start">
+          <div className="flex flex-col">
+            <div className="mb-20">
+              <h1 className="text-3xl font-semibold text-white">
+                Track, plan, and eat better with these features.
+              </h1>
+            </div>
+
+            <Features />
+          </div>
+        </div>
+
+        <div className="border-t bg-[#101010] max-w-6xl mx-auto border-types-100 flex justify-center items-start">
+          <SectionFour />
+        </div>
+        <div className="border-t bg-[#101010] max-w-6xl mx-auto border-types-100 flex justify-center items-start">
+          <SectionThree />
+        </div>
+        <div className="border-t bg-[#101010] max-w-6xl mx-auto border-types-100 flex justify-center items-start">
+          <SectionTwo />
         </div>
       </div>
       {/* </div> */}
@@ -138,7 +241,7 @@ const SwipeUpImage: FC<{
         transform: `translateY(${offsetY}px)`,
       }}
       src={src}
-      className="h-auto w-[500px]"
+      className="h-auto w-[450px]"
     />
   </div>
 );

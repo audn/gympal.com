@@ -1,19 +1,52 @@
+import { useEffect, useState } from 'react';
+
 const LineChart = () => {
-  const data = [
+  const initialData = [
     { x: 0, y: 88 },
     { x: 10, y: 87 },
     { x: 20, y: 88 },
     { x: 30, y: 89 },
     { x: 40, y: 87 },
+    { x: 50, y: 87 },
+    { x: 60, y: 87 },
   ];
+
+  const [data, setData] = useState(initialData);
+
+  useEffect(() => {
+    let isAnimatingUp = true;
+
+    const interval = setInterval(() => {
+      setData((prevData) =>
+        prevData.map((point) => {
+          const newY = isAnimatingUp
+            ? point.y + Math.random() * 4
+            : point.y - Math.random() * 4;
+
+          const foundPoint = initialData.find((p) => p.x === point.x);
+          const maxY = foundPoint ? foundPoint.y + 4 : point.y;
+          const minY = foundPoint ? foundPoint.y - 4 : point.y;
+
+          return {
+            ...point,
+            y: Math.max(Math.min(newY, maxY || point.y), minY || point.y),
+          };
+        }),
+      );
+
+      isAnimatingUp = !isAnimatingUp;
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const padding = 5;
   const viewBoxWidth = 100;
   const viewBoxHeight = 50;
 
   const minX = Math.min(...data.map((p) => p.x)) - padding;
-  const minY = Math.min(...data.map((p) => p.y)) - padding;
   const maxX = Math.max(...data.map((p) => p.x)) + padding;
+  const minY = Math.min(...data.map((p) => p.y)) - padding;
   const maxY = Math.max(...data.map((p) => p.y)) + padding;
 
   const linePathData = data
@@ -25,7 +58,11 @@ const LineChart = () => {
     })
     .join(' ');
 
-  const areaPathData = `${linePathData} L ${viewBoxWidth} ${viewBoxHeight} L 0 ${viewBoxHeight} Z`;
+  const startX = ((data[0].x - minX) / (maxX - minX)) * viewBoxWidth;
+  const endX =
+    ((data[data.length - 1].x - minX) / (maxX - minX)) * viewBoxWidth;
+
+  const areaPathData = `${linePathData} L ${endX} ${viewBoxHeight} L ${startX} ${viewBoxHeight} Z`;
 
   return (
     <svg
@@ -34,13 +71,27 @@ const LineChart = () => {
     >
       <defs>
         <linearGradient id="gradient-fill" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="rgba(156,126,53,0.4)" />
+          <stop offset="0%" stopColor="rgba(69,142,252,0.4)" />
           <stop offset="100%" stopColor="#2C2C2E" stopOpacity="0" />
         </linearGradient>
       </defs>
 
-      <path d={areaPathData} fill="url(#gradient-fill)" />
-      <path d={linePathData} fill="none" stroke="#FCC745" strokeWidth="0.5" />
+      <path
+        d={areaPathData}
+        fill="url(#gradient-fill)"
+        style={{
+          transition: 'd 0.4s ease-in-out',
+        }}
+      />
+      <path
+        d={linePathData}
+        fill="none"
+        stroke="#2F80ED"
+        strokeWidth="1"
+        style={{
+          transition: 'd 0.4s ease-in-out',
+        }}
+      />
 
       {data.map((point, index) => {
         const x = ((point.x - minX) / (maxX - minX)) * viewBoxWidth;
@@ -51,10 +102,13 @@ const LineChart = () => {
             key={index}
             cx={x}
             cy={y}
-            r={1.5}
-            fill="#1c1c1c"
-            stroke="#fcc745"
+            r={2.5}
+            fill="#2C2C2E"
+            stroke="#2F80ED"
             strokeWidth={1}
+            style={{
+              transition: 'cy 0.4s ease-in-out',
+            }}
           />
         );
       })}
@@ -64,16 +118,18 @@ const LineChart = () => {
 
 function TrackGoals() {
   return (
-    <div className="px-6 pt-6">
-      <div className="from-[#2C2C2E] bg-gradient-to-b to-[#1C1C1E] -m-6 overflow-hidden justify-end rounded-t-3xl px-6 pt-4 relative">
-        <h3 className="font-semibold mb-1 mt-2 text-[17px]">Track Weight</h3>
-        <p className=" text-[#787880] text-[15px] font-medium">
-          Keep track of your bodyweight!
-        </p>
-        <div className="flex flex-wrap gap-2 mt-3 -mx-6 ">
-          <LineChart />
-        </div>
+    <div className="">
+      {/* <div className="-m-6 mb-6"> */}
+      <h3 className="font-medium mb-1 - text-[17px]">Advanced Tracking</h3>
+      <p className=" text-[#787880]  text-[15px]">
+        Track your weight, body measurements and more!
+      </p>
+      {/* </div> */}
+      {/* <div className="from-[#2C2C2E] mt-4 bg-gradient-to-b to-[#1C1C1E] -m-6 overflow-hidden justify-end rounded-t-2xl px-6 pt-4 relative"> */}
+      <div className="flex flex-wrap gap-2 mt-3">
+        <LineChart />
       </div>
+      {/* </div> */}
     </div>
   );
 }

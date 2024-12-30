@@ -17,8 +17,8 @@ export const fadeIn = {
 };
 function NavItems({ router }: { router: NextRouter }) {
   const route = [
-    { label: 'About', anchor: '/' },
-    { label: 'Features', anchor: '/#features' },
+    { label: 'Home', anchor: '/' },
+    // { label: 'Features', anchor: '/#features' },
     { label: 'Roadmap', anchor: '/roadmap' },
     { label: 'Download', anchor: '/download' },
     // { label: 'Team', anchor: '/team' },
@@ -55,10 +55,10 @@ function Header() {
   return (
     <header
       className={concat(
-        'flex items-center justify-center fixed transition-all ease-out duration-200 top-0 inset-x-0 z-50  px-6',
+        'flex items-center bg-types-50 justify-center fixed transition-all ease-out duration-200 top-0 inset-x-0 z-50  px-6',
       )}
     >
-      <div className="h-[71px] bg-app-100 md:h-[80px] w-full max-w-6xl mx-auto flex items-center justify-between">
+      <div className="h-[71px] bg-types-50 md:h-[80px] w-full max-w-6xl mx-auto flex items-center justify-between">
         {/* <Link href={'/'} className="flex items-center">
           <button className="flex items-center">
             <h1 className="text-xl font-medium flex items-center">
