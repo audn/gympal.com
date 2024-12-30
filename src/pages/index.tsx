@@ -4,6 +4,7 @@ import Features from '../components/features/Features';
 import SectionFour from '../components/features/Macros';
 import SectionTwo from '../components/features/MoreThan';
 import SectionThree from '../components/features/Servings';
+import Footer from '../components/Footer';
 
 export default function Home() {
   const [offsetY, setOffsetY] = useState(0);
@@ -35,7 +36,7 @@ export default function Home() {
   };
   return (
     <main className={'h-full '}>
-      <div className="px-4 bg-types-50">
+      <div className="px-6 bg-types-50">
         <div className="max-h-screen  flex-col pt-[150px] flex relative overflow-hidden items-center">
           <div
             className="z-30 max-w-6xl h-screen mx-auto"
@@ -202,11 +203,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="px-4 ">
-        <div className=" bg-[#101010] gap-[5.75rem] py-[6.25rem] text-center mx-auto border-t border-types-100 flex justify-center items-start">
+      <div className="px-6 ">
+        <div className="bg-[#101010] gap-[5.75rem] py-12 sm:py-[6.25rem] text-center mx-auto border-t border-types-100 flex justify-center items-start">
           <div className="flex flex-col">
-            <div className="mb-20">
-              <h1 className="text-3xl font-semibold text-white">
+            <div className="mb-12 sm:mb-20">
+              <h1 className="text-2xl sm:text-3xl text-left sm:text-center font-medium text-white">
                 Track, plan, and eat better with these features.
               </h1>
             </div>
@@ -214,7 +215,6 @@ export default function Home() {
             <Features />
           </div>
         </div>
-
         <div className="border-t bg-[#101010] max-w-6xl mx-auto border-types-100 flex justify-center items-start">
           <SectionFour />
         </div>
@@ -224,7 +224,11 @@ export default function Home() {
         <div className="border-t bg-[#101010] max-w-6xl mx-auto border-types-100 flex justify-center items-start">
           <SectionTwo />
         </div>
+        <div className="border-t bg-[#101010] max-w-6xl mx-auto border-types-100 ">
+          <Footer />
+        </div>
       </div>
+
       {/* </div> */}
     </main>
   );

@@ -45,7 +45,7 @@ function Features() {
           key={x.title}
           className={concat(
             x.title == 'Overview'
-              ? 'h-[700px] sm:h-auto sm:row-span-2 !justify-end'
+              ? 'h-[500px] sm:h-auto sm:row-span-2 !justify-end'
               : '',
             // x.title == 'Daily Goals' ? 'w-[354px]' : '',
             // x.title == 'Customized Sizes' ? 'h-[90%]' : '',
