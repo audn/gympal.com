@@ -238,7 +238,7 @@ const SwipeUpImage: FC<{
   src: string;
   delay: number;
   offsetY: number;
-}> = ({ src, delay, offsetY }) => (
+}> = ({ src, offsetY }) => (
   <div>
     <img
       style={{
