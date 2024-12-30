@@ -13,7 +13,7 @@ const SectionFour = () => {
         </div>
       </div>
       <div className="grid-row-1 order-1 sm:-order-1">
-        <div className="overflow-hidden p-12 pb-0 rounded-3xl grid-row-1">
+        <div className="overflow-hidden sm:p-12 pb-0 rounded-3xl grid-row-1">
           <div className="flex items-center justify-center">
             <div className="relative mb-[-70%]">
               <img

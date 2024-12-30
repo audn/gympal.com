@@ -44,12 +44,12 @@ function Footer() {
 
       <div className="col-span-3 p-6 flex items-center justify-center bg-types-100 rounded-2xl">
         <div className="flex flex-col space-y-5 lg:space-y-0 sm:flex-row justify-between item-center w-full">
-          <div className="flex justify-between items-center w-full">
+          <div className="flex flex-col sm:flex-row justify-between items-center w-full">
             <span className="text-on-100 text-center sm:text-left">
               &copy; {new Date().getFullYear()} Gympal &bull;{' '}
               <Link href="/privacy">Privacy</Link>
             </span>
-            <div className="flex flex-col items-center md:flex-row space-y-2 md:space-y-0 md:space-x-5">
+            <div className="flex flex-col items-center md:flex-row space-y-2 md:space-y-0 md:space-x-5 mt-3 sm:mt-0">
               <a href="mailto:audun@gympal.com">
                 <button className="bg-white self-start text-black px-3 text-sm flex items-center font-bold py-1 rounded-full">
                   <i className="fa-solid fa-envelope mr-2" /> Get in touch

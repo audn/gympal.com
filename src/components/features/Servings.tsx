@@ -13,7 +13,7 @@ const SectionThree = () => {
         </div>
       </div>
       <div className="grid-row-1">
-        <div className=" p-12 overflow-hidden pt-0 rounded-3xl grid-row-1">
+        <div className=" sm:p-12 overflow-hidden pt-0 rounded-3xl grid-row-1">
           <img
             src="/phones/mealsizes-blurred.svg"
             alt="Phone"
