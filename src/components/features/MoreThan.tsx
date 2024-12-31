@@ -2,7 +2,7 @@ const SectionTwo = () => {
   return (
     <div className="max-w-6xl mx-auto ">
       <section className="grid items-center sm:grid-cols-2 gap-[5.75rem] py-12 sm:py-[6.25rem] px-0 pb-[4.75rem]">
-        <div className="bg-types-50s sm:-12 overflow-hidden pb-0 rounded-3xl grid-row-1">
+        <div className="bg-types-50s sm:p-12 overflow-hidden pb-0 rounded-3xl grid-row-1">
           <div className="flex items-center justify-center">
             <div className="relative mb-[-70%]">
               <img

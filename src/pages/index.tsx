@@ -48,7 +48,7 @@ export default function Home() {
             {/* <h1 className="text-4xl font-bold text-white text-center ">
             Your new favorite fitness app
           </h1> */}
-            <h1 className="text-6xl max-w-sm  mx-auto font-bold text-white text-center">
+            <h1 className="text-4xl sm:text-6xl max-w-sm  mx-auto font-bold text-white text-center">
               {'Your new favorite fitness app'.split(' ').map((x, i) => (
                 <motion.span
                   animate="enter"
@@ -94,7 +94,7 @@ export default function Home() {
 
           {/* <div className="absolute z-30 top-[46%] left-0 right-0 mx-auto justify-center flex items-center -space-x-16"> */}
 
-          <div className="relative flex items-center mt-24 z-30 space-x-[-150px]">
+          <div className="relative flex items-center mt-12 sm:mt-24 z-30 space-x-[-150px]">
             <motion.div
               variants={{
                 initial: {
@@ -153,7 +153,7 @@ export default function Home() {
               initial="initial"
             >
               <div
-                className="z-20"
+                className="z-20 w-[250px]"
                 style={{
                   filter: `drop-shadow(0 0 16px rgba(0, 0, 0, 0.9))`,
                 }}
@@ -238,16 +238,15 @@ const SwipeUpImage: FC<{
   src: string;
   delay: number;
   offsetY: number;
-}> = ({ src, offsetY }) => (
-  <div>
-    <img
-      style={{
-        transform: `translateY(${offsetY}px)`,
-      }}
-      src={src}
-      className="h-auto w-[450px]"
-    />
-  </div>
+  className?: string;
+}> = ({ src, offsetY, className }) => (
+  <img
+    style={{
+      transform: `translateY(${offsetY}px)`,
+    }}
+    src={src}
+    className={`h-auto w-[450px] ${className}`}
+  />
 );
 
 const DownloadButtons: React.FC = () => {
