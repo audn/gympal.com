@@ -7,11 +7,46 @@ html {
 body {
   color: rgba(235, 235, 245, 0.6);
   font-family: 'Inter', sans-serif;
-  background-color: #101010;
+  background-color: #141414;
 
   font-family: 'Uncut', sans-serif;
 
   /* font-family: 'Red Hat Display', sans-serif; */
+}
+article > footer {
+  position: relative;
+  padding: 50px 0px 0px;
+  margin: 16px 0px 0px;
+  font-size: 12px;
+  line-height: 18px;
+}
+article {
+  @apply text-white/80 text-lg leading-relaxed;
+}
+strong {
+  @apply font-semibold;
+}
+section {
+  @apply space-y-8;
+}
+section > :first-child {
+  @apply mt-10 mb-4;
+}
+section > :nth-child(2) {
+  @apply !mt-0;
+}
+.breadcrumbs::after {
+  content: '';
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px 0.65rem;
+  background: rgb(204, 204, 204);
+  width: 1.5px;
+  height: 12px;
+  border-radius: 2px;
+  transform: rotate(10deg);
 }
 .svg-container {
   width: 100%;

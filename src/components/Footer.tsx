@@ -25,7 +25,7 @@ function Footer() {
     },
   ];
   return (
-    <div className="max-w-6xl mb-10 mx-auto grid-cols-3 gap-5 sm:grid mt-24">
+    <div className="max-w-6xl pb-10 mx-auto grid-cols-3 gap-5 sm:grid mt-24">
       <div className="p-10 flex items-center justify-center bg-types-calories rounded-2xl">
         <img src="qr.png" className="w-28 rounded-xl" />
       </div>

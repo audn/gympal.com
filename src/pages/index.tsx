@@ -6,6 +6,21 @@ import SectionTwo from '../components/features/MoreThan';
 import SectionThree from '../components/features/Servings';
 import Footer from '../components/Footer';
 
+export const content = {
+  initial: { opacity: 0, y: 40 },
+  enter: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      delay: 0.6,
+      ease: [0.25, 0.46, 0.45, 0.94],
+      damping: 100,
+      stiffness: 20,
+    },
+  },
+};
+
 export default function Home() {
   const [offsetY, setOffsetY] = useState(0);
   const handleScroll = () => {
@@ -20,27 +35,18 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const content = {
-    initial: { opacity: 0, y: 40 },
-    enter: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        delay: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
-        damping: 100,
-        stiffness: 20,
-      },
-    },
-  };
   return (
     <main className={'h-full '}>
       <div className="px-6 bg-types-50">
-        <div className="max-h-screen  flex-col pt-[150px] flex relative overflow-hidden items-center">
+        {/* 
+        144px = 80px + 64px
+        80px header
+        64px message above header
+        */}
+        <div className="max-h-[calc(100vh-144px)] pt-10 sm:pt-[100px] flex-col flex relative overflow-hidden items-center ">
           <div
             className="z-30 max-w-6xl h-screen mx-auto"
-
+            // style={{ transform: `translateY(-${offsetY * -0.2}px)` }}
             // style={{ transform: `translateY(-${offsetY * -0.2}px)` }}
           >
             {/* <div className="h-screen"> */}
@@ -48,7 +54,11 @@ export default function Home() {
             {/* <h1 className="text-4xl font-bold text-white text-center ">
             Your new favorite fitness app
           </h1> */}
-            <h1 className="text-4xl sm:text-6xl max-w-sm  mx-auto font-bold text-white text-center">
+            {/* <div className="px-3 mb-6 py-1 rounded-full bg-brand-primary-100/90 text-white text-white">
+              Gympal is in the early stages, bugs and broken features may
+              appear.
+            </div> */}
+            <h1 className="text-4xl sm:text-6xl max-w-sm mx-auto font-semibold text-white text-center">
               {'Your new favorite fitness app'.split(' ').map((x, i) => (
                 <motion.span
                   animate="enter"
@@ -105,7 +115,7 @@ export default function Home() {
                 enter: {
                   transition: {
                     duration: 0.6,
-                    delay: 0.8,
+                    delay: 0.6,
                     ease: [0.25, 0.46, 0.45, 0.94],
                     damping: 100,
                     stiffness: 20,
@@ -140,7 +150,7 @@ export default function Home() {
                 enter: {
                   transition: {
                     duration: 0.6,
-                    delay: 0.8,
+                    delay: 0.6,
                     ease: [0.25, 0.46, 0.45, 0.94],
                     damping: 100,
                     stiffness: 20,
@@ -153,7 +163,7 @@ export default function Home() {
               initial="initial"
             >
               <div
-                className="z-20 w-[250px]"
+                className="z-20 w-[250px] sm:w-auto"
                 style={{
                   filter: `drop-shadow(0 0 16px rgba(0, 0, 0, 0.9))`,
                 }}
@@ -175,7 +185,7 @@ export default function Home() {
                 enter: {
                   transition: {
                     duration: 0.6,
-                    delay: 0.8,
+                    delay: 0.6,
                     ease: [0.25, 0.46, 0.45, 0.94],
                     damping: 100,
                     stiffness: 20,
@@ -203,7 +213,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="px-6 ">
+      <div className="bg-[#101010] px-6 ">
         <div className="bg-[#101010] gap-[5.75rem] py-12 sm:py-[6.25rem] text-center mx-auto border-t border-types-100 flex justify-center items-start">
           <div className="flex flex-col">
             <div className="mb-12 sm:mb-20">
