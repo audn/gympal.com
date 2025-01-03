@@ -50,7 +50,7 @@ function NavItems({
           <button
             onClick={closeMenu}
             className={
-              'bg-[#5865F2] px-3 text-white group py-2 sm:py-1 w-full text-left sm:text-center rounded-md sm:rounded-full flex items-center transition-all ease-out duration-200'
+              'bg-[#5865F2] px-3 text-white group py-2 w-full text-left sm:text-center rounded-md sm:rounded-full flex items-center transition-all ease-out duration-200'
             }
           >
             <i className="fa-brands fa-discord group-hover:scale-110 transition-all ease-out duration-200" />
