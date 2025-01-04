@@ -88,7 +88,7 @@ function Header() {
         'flex items-center bg-types-50 justify-center sticky transition-all ease-out duration-200 top-0 z-50 px-6',
       )}
     >
-      <div className="h-[71px] bg-types-50 md:h-[80px] w-full max-w-6xl mx-auto flex items-center justify-between">
+      <div className="h-[71px] bg-types-50 md:h-[80px] w-full max-w-6xl mx-auto flex items-center justify-between relative">
         <Link href={'/'} className="flex items-center">
           <button className="flex items-center">
             <img src="/logo-text-white.svg" className="w-24 mr-2" />
@@ -111,7 +111,7 @@ function Header() {
                 exit="closed"
                 initial="closed"
                 variants={menu}
-                className="fixed inset-x-1 p-3 border border-[#2C2C2E] bg-types-100 rounded-xl mt-12 mx-5"
+                className="absolute inset-x-0 p-3 border border-[#2C2C2E] bg-types-100 rounded-xl top-16 right-0"
               >
                 <NavItems router={router} closeMenu={() => setIsOpen(false)} />
               </motion.div>

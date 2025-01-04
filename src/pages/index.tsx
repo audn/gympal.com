@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import React, { FC, useEffect, useState } from 'react';
+import BetaSignupModal from '../components/android-modal';
 import Features from '../components/features/Features';
 import SectionFour from '../components/features/Macros';
 import SectionTwo from '../components/features/MoreThan';
@@ -35,31 +36,26 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+
   return (
     <main className={'h-full '}>
+      <BetaSignupModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
       <div className="px-6 bg-types-50">
         {/* 
         144px = 80px + 64px
         80px header
         64px message above header
         */}
-        <div className="max-h-[calc(100vh-144px)] pt-10 sm:pt-[100px] flex-col flex relative overflow-hidden items-center ">
-          <div
-            className="z-30 max-w-6xl h-screen mx-auto"
-            // style={{ transform: `translateY(-${offsetY * -0.2}px)` }}
-            // style={{ transform: `translateY(-${offsetY * -0.2}px)` }}
-          >
-            {/* <div className="h-screen"> */}
-
-            {/* <h1 className="text-4xl font-bold text-white text-center ">
-            Your new favorite fitness app
-          </h1> */}
-            {/* <div className="px-3 mb-6 py-1 rounded-full bg-brand-primary-100/90 text-white text-white">
-              Gympal is in the early stages, bugs and broken features may
-              appear.
-            </div> */}
-            <h1 className="text-4xl sm:text-6xl max-w-sm mx-auto font-semibold text-white text-center">
-              {'Your new favorite fitness app'.split(' ').map((x, i) => (
+        <div className="max-h-[calc(100vh-144px)] pt-12 sm:pt-[100px] flex-col flex relative overflow-hidden items-center ">
+          <div className="z-30 max-w-6xl h-screen mx-auto">
+            <h1 className="text-5xl sm:text-6xl max-w-sm mx-auto font-medium text-white text-center">
+              {'Your favorite fitness app'.split(' ').map((x, i) => (
                 <motion.span
                   animate="enter"
                   className="inline-block relative "
@@ -92,12 +88,12 @@ export default function Home() {
               initial="initial"
               variants={content}
             >
-              <p className="text-center mt-8 font-regular text-xl ">
+              <p className="text-center mt-8 font-regular text-[17px] ">
                 An all-in-one app designed to track your diet, workout sessions
                 and bodyweight.
               </p>
 
-              <DownloadButtons />
+              <DownloadButtons openModal={openModal} />
             </motion.div>
             {/* </div> */}
           </div>
@@ -217,8 +213,9 @@ export default function Home() {
         <div className="bg-[#101010] gap-[5.75rem] py-12 sm:py-[6.25rem] text-center mx-auto border-t border-types-100 flex justify-center items-start">
           <div className="flex flex-col">
             <div className="mb-12 sm:mb-20">
-              <h1 className="text-2xl sm:text-3xl text-left sm:text-center font-medium text-white">
-                Track, plan, and eat better with these features.
+              <h1 className="text-2xl sm:text-3xl text-center font-medium text-white">
+                Track, plan, and eat better <br />
+                with these features.
               </h1>
             </div>
 
@@ -259,7 +256,9 @@ const SwipeUpImage: FC<{
   />
 );
 
-const DownloadButtons: React.FC = () => {
+const DownloadButtons: React.FC<{ openModal: () => void }> = ({
+  openModal,
+}) => {
   return (
     <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
       <a
@@ -278,8 +277,8 @@ const DownloadButtons: React.FC = () => {
         </div>
       </a>
 
-      <a
-        href="#"
+      <button
+        onClick={openModal}
         className="px-4 h-[55px]  bg-white text-black rounded-xl flex items-center justify-center space-x-2  transition-colors duration-300"
         aria-label="Get it on Google Play"
       >
@@ -290,7 +289,7 @@ const DownloadButtons: React.FC = () => {
             Google Play
           </span>
         </div>
-      </a>
+      </button>
     </div>
   );
 };

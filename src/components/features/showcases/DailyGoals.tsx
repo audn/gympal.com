@@ -31,7 +31,7 @@ function Box({
 export default function DailyGoals() {
   return (
     <>
-      <h3 className="font-medium  text-[17px]">Stategies</h3>
+      <h3 className="font-medium  text-[17px]">Strategies</h3>
       <p className=" text-[#787880] text-[15px]">
         Set up daily macronutrient goals!
       </p>
@@ -123,7 +123,7 @@ function Chart() {
   }, []);
 
   return (
-    <div className="grid grid-cols-7 h-[inherit] items-end gap-3">
+    <div className="grid grid-cols-7 h-[inherit] items-end ">
       {goals.map((goal, index) => {
         const fatCalories = goal.fat * 9;
         const proteinCalories = goal.protein * 4;

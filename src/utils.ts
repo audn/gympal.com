@@ -13,8 +13,8 @@ export const scaleIn = {
 };
 export const menu = {
   closed: {
-    y: -100,
-    scale: 0.6,
+    translateY: -20,
+    scale: 0.9,
     opacity: 0,
     transition: {
       type: 'spring',
@@ -25,7 +25,7 @@ export const menu = {
   open: {
     scale: 1,
     opacity: 1,
-    y: 0,
+    translateY: 0,
     transition: {
       type: 'spring',
       duration: 0.5,

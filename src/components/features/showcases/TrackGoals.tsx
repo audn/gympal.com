@@ -40,9 +40,11 @@ const LineChart = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const padding = 5;
-  const viewBoxWidth = 100;
-  const viewBoxHeight = 50;
+  const padding = 2;
+  const viewBoxWidth = 120;
+  const viewBoxHeight = 40;
+  // const viewBoxWidth = 100;
+  // const viewBoxHeight = 50;
 
   const minX = Math.min(...data.map((p) => p.x)) - padding;
   const maxX = Math.max(...data.map((p) => p.x)) + padding;
@@ -67,7 +69,7 @@ const LineChart = () => {
   return (
     <svg
       viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
-      className="w-full h-[152px] -mt-10"
+      className="w-full h-[100px]"
     >
       <defs>
         <linearGradient id="gradient-fill" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -119,16 +121,7 @@ const LineChart = () => {
 function TrackGoals() {
   return (
     <div className="">
-      {/* <div className="-m-6 mb-6"> */}
-      <h3 className="font-medium mb-1 - text-[17px]">Advanced Tracking</h3>
-      <p className=" text-[#787880]  text-[15px]">
-        Track your weight, body measurements and more!
-      </p>
-      {/* </div> */}
-      {/* <div className="from-[#2C2C2E] mt-4 bg-gradient-to-b to-[#1C1C1E] -m-6 overflow-hidden justify-end rounded-t-2xl px-6 pt-4 relative"> */}
-      <div className="flex flex-wrap gap-2 mt-3">
-        <LineChart />
-      </div>
+      <LineChart />
       {/* </div> */}
     </div>
   );
