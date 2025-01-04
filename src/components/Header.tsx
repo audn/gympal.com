@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import concat from '../concat';
 
@@ -25,6 +26,7 @@ function Header() {
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  const router = useRouter();
 
   return (
     <header
@@ -39,49 +41,26 @@ function Header() {
             <img src="/logo-text-white.svg" className="w-24 mr-2" />
           </button>
         </Link>
-        {/* <nav className="flex sm:hidden" ref={navRef}>
-          <button
-            className={concat(
-              isOpen ? 'bg-types-100' : '',
-              'w-10 h-10 outline-none rounded-md flex items-center justify-center',
-            )}
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            <i className="fa-solid fa-bars text-lg" />
-          </button>
-          <AnimatePresence>
-            {isOpen ? (
-              <motion.div
-                animate="open"
-                exit="closed"
-                initial="closed"
-                variants={menu}
-                className="absolute inset-x-0 p-3 border border-[#2C2C2E] bg-types-100 rounded-xl space-y-2 top-16 right-0"
-              >
-                <NavItems router={router} closeMenu={() => setIsOpen(false)} />
-              </motion.div>
-            ) : null}
-          </AnimatePresence>
-        </nav> */}
-        <div className="justify-end w-full flex space-x-2 items-center">
-          {/* <div className="flex space-x-2 items-center">
-            <NavItems router={router} closeMenu={() => setIsOpen(false)} />
-          </div>*/}
-          <div className="mt-1 sm:mt-0 sm:pl-4">
-            <a href="https://discord.gg/Q3dQj2Kqzm">
-              <button
-                className={
-                  'bg-[#5865F2] px-5 text-white group py-1.5 w-full text-left sm:text-center gap-2 rounded-full flex items-center transition-all ease-out duration-200'
-                }
-              >
-                <i className="fa-brands fa-discord group-hover:scale-110 transition-all ease-out duration-200" />
-                <span className="text-white/80 font-semibold">
-                  Join Discord
-                </span>
-              </button>
-            </a>
+        {router.pathname !== '/shared/meal/[id]' ? (
+          <div className="justify-end w-full flex space-x-2 items-center">
+            <div className="mt-1 sm:mt-0 sm:pl-4">
+              <div className="mt-1 sm:mt-0 sm:pl-4">
+                <a href="https://discord.gg/Q3dQj2Kqzm">
+                  <button
+                    className={
+                      'bg-[#5865F2] px-5 text-white group py-1.5 w-full text-left sm:text-center gap-2 rounded-full flex items-center transition-all ease-out duration-200'
+                    }
+                  >
+                    <i className="fa-brands fa-discord group-hover:scale-110 transition-all ease-out duration-200" />
+                    <span className="text-white/80 font-semibold">
+                      Join Discord
+                    </span>
+                  </button>
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
+        ) : null}
       </div>
     </header>
   );

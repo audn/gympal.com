@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 
 const features = [
@@ -34,6 +35,13 @@ const features = [
         description:
           'Monitor weight changes, capture progress photos, and analyze trends.',
       },
+      {
+        title: 'Hide Calories',
+        status: <NotAvailable />,
+        description:
+          'Hide all calorie-related information, including total calories consumed and calories in individual products, to focus exclusively on tracking macros.',
+      },
+
       {
         title: 'Body Metrics',
         status: <NotAvailable />,
@@ -133,6 +141,11 @@ function Early() {
         },
       }}
     >
+      <NextSeo
+        title="Gympal: Here’s What to Expect"
+        description="Gympal is an early-stage app, and we’re working hard to make it even better for you."
+      />
+
       <article className="max-w-4xl mx-auto px-4 py-8 md:py-12">
         <div className="flex flex-wrap items-center gap-2 mb-8">
           <time className="text-base">3 Jan, 2025</time>
@@ -287,17 +300,16 @@ function Early() {
           </p>
         </section> */}
 
-        <section>
+        {/* <section>
           <h2 className="!mt-12 text-2xl font-medium tracking-tight mb-8">
             Building in Public
           </h2>
           <p>
             Gympal is being built with full transparency. That means I’m sharing
             the process, listening to community feedback, and making changes
-            based on what's needed. Join our Discord community to share your
-            thoughts and stay in the loop.
+            based on what's needed.
           </p>
-        </section>
+        </section> */}
         <section>
           <h2 className="!mt-12 text-2xl font-medium tracking-tight mb-8">
             Final Thoughts

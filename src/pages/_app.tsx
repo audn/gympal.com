@@ -31,27 +31,29 @@ export default function App({ Component, pageProps, router }: AppProps) {
           },
         }}
       >
-        <div className="bg-brand-primary-100 z-[60] py-4  px-6 w-full">
-          <div className="max-w-6xl mx-auto ">
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-              <p className="font-medium text-center sm:text-left text-white">
-                Gympal is an early-stage app, and we’re working hard to make it
-                even better for you.
-              </p>
-              <Link title="Find out more!" href="/blog/early">
-                <button className="text-types-100 shrink-0 font-medium bg-white px-3 py-1 rounded-full">
-                  Find out more!
-                </button>
-              </Link>
+        {router.pathname !== '/shared/meal/[id]' ? (
+          <div className="bg-brand-primary-100 z-[60] py-4  px-6 w-full">
+            <div className="max-w-6xl mx-auto ">
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <p className="font-medium text-center sm:text-left text-white">
+                  Gympal is an early-stage app, and we’re working hard to make
+                  it even better for you.
+                </p>
+                <Link title="Find out more!" href="/blog/what-to-expect">
+                  <button className="text-types-100 shrink-0 font-medium bg-white px-3 py-1 rounded-full">
+                    Find out more!
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+        ) : null}
 
         <Header />
       </motion.div>
       <AnimatePresence exitBeforeEnter>
         <Component {...pageProps} key={router.route} />
-        <Footer />
+        {router.pathname !== '/shared/meal/[id]' ? <Footer /> : null}{' '}
       </AnimatePresence>
       <Analytics />
     </div>
