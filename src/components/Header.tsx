@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { NextRouter, useRouter } from 'next/router';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import concat from '../concat';
 
 export const fadeIn = {
@@ -13,59 +12,8 @@ export const fadeIn = {
     },
   },
 };
-function NavItems({
-  router,
-  closeMenu,
-}: {
-  router: NextRouter;
-  closeMenu: () => void;
-}) {
-  const route = [
-    { label: 'Home', anchor: '/' },
-    { label: 'Roadmap', anchor: '/roadmap' },
-    // { label: 'Download', anchor: '/download' },
-  ];
-
-  return (
-    <>
-      {route.map((x) => (
-        <Link href={x.anchor} key={x.label}>
-          <button
-            onClick={closeMenu}
-            className={concat(
-              x.anchor == router.asPath
-                ? 'text-white bg-types-175 '
-                : 'text-white/80 ',
-              'px-3 py-2 sm:py-1 w-full text-left sm:text-center rounded-lg transition-all ease-out duration-200 hover:bg-types-100',
-            )}
-          >
-            {x.label}
-          </button>
-        </Link>
-      ))}
-      <div className="flex sm:hidden mt-1  sm:mt-0 sm:pl-4">
-        <a href="https://discord.gg/Q3dQj2Kqzm" className="w-full">
-          <button
-            onClick={closeMenu}
-            className={
-              'bg-[#5865F2] px-3 text-white group py-2 w-full text-left sm:text-center rounded-md sm:rounded-full flex items-center transition-all ease-out duration-200'
-            }
-          >
-            <i className="fa-brands fa-discord group-hover:scale-110 transition-all ease-out duration-200" />
-            <div className="sm:hidden flex ml-2">
-              <span className="text-white/80">Join Discord</span>
-            </div>
-          </button>
-        </a>
-      </div>
-    </>
-  );
-}
 
 function Header() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const router = useRouter();
-  const navRef = useRef<HTMLDivElement>(null);
   const [offsetY, setOffsetY] = useState(0);
   const handleScroll = () => {
     if (window.pageYOffset < 600) {
@@ -76,18 +24,6 @@ function Header() {
     window.addEventListener('scroll', handleScroll);
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
   }, []);
 
   return (
@@ -134,7 +70,6 @@ function Header() {
           <div className="mt-1 sm:mt-0 sm:pl-4">
             <a href="https://discord.gg/Q3dQj2Kqzm">
               <button
-                onClick={() => setIsOpen(false)}
                 className={
                   'bg-[#5865F2] px-5 text-white group py-1.5 w-full text-left sm:text-center gap-2 rounded-full flex items-center transition-all ease-out duration-200'
                 }

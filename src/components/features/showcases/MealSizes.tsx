@@ -8,13 +8,13 @@ function MealSizes() {
   const sizes = ['lower carbs', '+redbull', 'bulking', 'cutting for summer'];
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
+  // const [direction, setDirection] = useState(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => {
         const newIndex = (prevIndex + 1) % sizes.length;
-        setDirection(1);
+        // setDirection(1);
         return newIndex;
       });
     }, 5000);
@@ -23,7 +23,7 @@ function MealSizes() {
   }, [sizes.length]);
 
   const handleClick = (index: number) => {
-    setDirection(index > activeIndex ? 1 : -1);
+    // setDirection(index > activeIndex ? 1 : -1);
     setActiveIndex(index);
   };
   return (
