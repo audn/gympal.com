@@ -50,7 +50,7 @@ function Overview() {
   }, []);
 
   return (
-    <div className="from-[#212121] bg-gradient-to-b to-[#1C1C1E] -mr-6 pt-10 overflow-hidden justify-end rounded-bl-3xl h-[90%] rounded-tl-3xl relative">
+    <div className="from-types-175 bg-gradient-to-b to-types-150 -mr-6 pt-10 overflow-hidden justify-end rounded-bl-3xl h-[90%] rounded-tl-3xl relative">
       <div className="flex h-[90%] flex-col overflow-hidden right-5 absolute !-mt-10 -mr-2 pt-10 text-right justify-between">
         {[0, 1000, 2000, 3000].reverse().map((x) => (
           <div className="text-sm items-end z-10 text-on-100 flex" key={x}>

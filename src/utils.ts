@@ -18,7 +18,7 @@ export const menu = {
     opacity: 0,
     transition: {
       type: 'spring',
-      duration: 0.3,
+      duration: 0.2,
       // delay: 0.15,
     },
   },
@@ -28,7 +28,7 @@ export const menu = {
     translateY: 0,
     transition: {
       type: 'spring',
-      duration: 0.5,
+      duration: 0.2,
       delayChildren: 0.2,
       staggerChildren: 0.05,
     },

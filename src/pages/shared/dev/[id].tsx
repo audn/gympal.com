@@ -28,7 +28,7 @@ function MealCard() {
 }
 function Meal() {
   return (
-    <div className="bg-[#171717] min-h-screen flex items-center justify-center">
+    <div className="bg-types-100 min-h-screen flex items-center justify-center">
       <Link href={'/'}>
         <button className="flex items-center fixed top-4">
           <h1 className="text-sm font-semibold flex items-center">

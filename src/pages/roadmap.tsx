@@ -1,6 +1,6 @@
 function Roadmap() {
   return (
-    <main className={'h-full px-6'}>
+    <main className={'h-full px-6 min-h-screen'}>
       <div className="bg-[#121212]- max-w-6xl mx-auto py-6">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-xl font-semibold max">Roadmap</h1>

@@ -50,7 +50,7 @@ function Features() {
             // x.title == 'Daily Goals' ? 'w-[354px]' : '',
             // x.title == 'Customized Sizes' ? 'h-[90%]' : '',
             // x.title == 'Track Weight' ? 'mb-6' : '',
-            'bg-[#171717] p-4 sm:p-6 sm:max-w-[350px] flex flex-col rounded-xl text-start justify-between',
+            'bg-types-150 p-4 sm:p-6 sm:max-w-[350px] flex flex-col rounded-xl text-start justify-between',
           )}
         >
           {x.component}

@@ -5,7 +5,6 @@ import Features from '../components/features/Features';
 import SectionFour from '../components/features/Macros';
 import SectionTwo from '../components/features/MoreThan';
 import SectionThree from '../components/features/Servings';
-import Footer from '../components/Footer';
 
 export const content = {
   initial: { opacity: 0, y: 40 },
@@ -209,8 +208,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="bg-[#101010] px-6 ">
-        <div className="bg-[#101010] gap-[5.75rem] py-12 sm:py-[6.25rem] text-center mx-auto border-t border-types-100 flex justify-center items-start">
+      <div className="divide-y divide-types-150 border-t border-types-150  bg-types-100 px-6 ">
+        <div className="bg-types-100 gap-[5.75rem] py-12 sm:py-[6.25rem] text-center mx-auto  flex justify-center items-start">
           <div className="flex flex-col">
             <div className="mb-12 sm:mb-20">
               <h1 className="text-2xl sm:text-3xl text-center font-medium text-white">
@@ -222,17 +221,14 @@ export default function Home() {
             <Features />
           </div>
         </div>
-        <div className="border-t bg-[#101010] max-w-6xl mx-auto border-types-100 flex justify-center items-start">
+        <div className=" bg-types-100 max-w-6xl mx-auto  flex justify-center items-start">
           <SectionFour />
         </div>
-        <div className="border-t bg-[#101010] max-w-6xl mx-auto border-types-100 flex justify-center items-start">
+        <div className=" bg-types-100 max-w-6xl mx-auto  flex justify-center items-start">
           <SectionThree />
         </div>
-        <div className="border-t bg-[#101010] max-w-6xl mx-auto border-types-100 flex justify-center items-start">
+        <div className=" bg-types-100 max-w-6xl mx-auto  flex justify-center items-start">
           <SectionTwo />
-        </div>
-        <div className="border-t bg-[#101010] max-w-6xl mx-auto border-types-100 ">
-          <Footer />
         </div>
       </div>
 

@@ -80,7 +80,7 @@ function MealScreen({ meal }: { meal: Meal }) {
   const defaultSize = meal.sizes?.find((x) => x.default)!;
   const otherSizes = meal.sizes?.filter((x) => !x.default);
   return (
-    <div className="bg-[#171717] min-h-screen justify-center flex flex-col items-center">
+    <div className="bg-types-100 min-h-screen justify-center flex flex-col items-center">
       <NextSeo
         title={`${meal.name} | Gympal`}
         description={`${meal.user?.displayName} shared a meal with you on Gympal!`}
