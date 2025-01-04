@@ -1,9 +1,7 @@
-import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { NextRouter, useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 import concat from '../concat';
-import { menu } from '../utils';
 
 export const fadeIn = {
   initial: { opacity: 0 },
@@ -101,11 +99,11 @@ function Header() {
     >
       <div className="justify-between sm:justify-start h-[71px] md:h-[80px] w-full max-w-6xl mx-auto flex items-center gap-10 relative">
         <Link href={'/'} className="flex items-center">
-          <button className="flex items-center">
+          <button className="flex shrink-0  items-center">
             <img src="/logo-text-white.svg" className="w-24 mr-2" />
           </button>
         </Link>
-        <nav className="flex sm:hidden" ref={navRef}>
+        {/* <nav className="flex sm:hidden" ref={navRef}>
           <button
             className={concat(
               isOpen ? 'bg-types-100' : '',
@@ -128,11 +126,11 @@ function Header() {
               </motion.div>
             ) : null}
           </AnimatePresence>
-        </nav>
-        <div className="hidden justify-between w-full sm:flex space-x-2 items-center">
-          <div className="flex space-x-2 items-center">
+        </nav> */}
+        <div className="justify-end w-full flex space-x-2 items-center">
+          {/* <div className="flex space-x-2 items-center">
             <NavItems router={router} closeMenu={() => setIsOpen(false)} />
-          </div>{' '}
+          </div>*/}
           <div className="mt-1 sm:mt-0 sm:pl-4">
             <a href="https://discord.gg/Q3dQj2Kqzm">
               <button
@@ -142,7 +140,9 @@ function Header() {
                 }
               >
                 <i className="fa-brands fa-discord group-hover:scale-110 transition-all ease-out duration-200" />
-                <span className="text-white/80 font-medium">Join Discord</span>
+                <span className="text-white/80 font-semibold">
+                  Join Discord
+                </span>
               </button>
             </a>
           </div>

@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useCallback, useEffect } from 'react';
+import Waitlist from './Waitlist';
 
 interface ModalProps {
   isOpen: boolean;
@@ -30,13 +31,6 @@ const BetaSignupModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       document.removeEventListener('keydown', handleEscape);
     };
   }, [isOpen, handleEscape]);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const email = formData.get('email');
-    console.log('Email submitted:', email);
-  };
 
   return (
     <AnimatePresence>
@@ -88,25 +82,7 @@ const BetaSignupModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
               <h2 className="text-center text-2xl font-medium text-gray-200">
                 We need your email to invite you to the Android beta.
               </h2>
-
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    required
-                    className="w-full rounded-lg bg-[#1A1A1A] px-4 py-3 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full rounded-lg bg-[#F7C748] py-3 text-lg font-medium text-black transition-colors hover:bg-[#F5BB2D] focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                >
-                  Submit
-                </button>
-              </form>
+              <Waitlist platform="ANDROID" />
 
               <p className="text-center text-sm text-gray-400">
                 Google requires us to manually add at least 20 testers for 14

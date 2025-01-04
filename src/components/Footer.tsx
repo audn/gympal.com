@@ -1,81 +1,58 @@
 import Link from 'next/link';
-
+import concat from '../concat';
+const icons = [
+  {
+    title: 'Discord',
+    route: 'https://discord.gg/Q3dQj2Kqzm',
+    icon: 'fa-brands fa-discord',
+  },
+  {
+    title: 'Facebook',
+    route: 'https://facebook.com/gympalcom',
+    icon: 'fa-brands fa-facebook',
+  },
+  {
+    title: 'Instagram',
+    route: 'https://instagram.com/gympalcom',
+    icon: 'fa-brands fa-instagram',
+  },
+  {
+    title: 'Twitter',
+    route: 'https://twitter.com/gympalcom',
+    icon: 'fa-brands fa-twitter',
+  },
+];
 function Footer() {
   return (
-    <footer className="flex max-w-6xl mx-auto justify-between w-full py-16 px-4">
-      <Link href={'/'} className="flex items-center">
-        <button className="flex items-center">
-          <img src="/logo-text-white.svg" className="w-24 mr-2" />
-        </button>
-      </Link>
-      <div className="flex flex-col items-end gap-2 pt-0.5">
-        <p className="text-xs">© 2025</p>
-        <ul className="flex items-center gap-2">
-          <li>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/family"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M8.00621 0.5C3.85547 0.5 0.5 3.93749 0.5 8.19012C0.5 11.5895 2.64996 14.467 5.63253 15.4854C6.00543 15.562 6.14202 15.3199 6.14202 15.1163C6.14202 14.9381 6.12973 14.327 6.12973 13.6903C4.04169 14.1487 3.60687 12.7735 3.60687 12.7735C3.27131 11.8823 2.77411 11.6532 2.77411 11.6532C2.09069 11.1821 2.82389 11.1821 2.82389 11.1821C3.58198 11.2331 3.97977 11.9715 3.97977 11.9715C4.65074 13.1428 5.73194 12.8118 6.16691 12.6081C6.22899 12.1115 6.42796 11.7678 6.63922 11.5768C4.97386 11.3985 3.22168 10.7365 3.22168 7.78263C3.22168 6.94232 3.51975 6.25482 3.99206 5.72013C3.91754 5.5292 3.6565 4.73967 4.06673 3.68296C4.06673 3.68296 4.70052 3.47921 6.12958 4.47233C6.74141 4.30399 7.37238 4.21836 8.00621 4.21764C8.63999 4.21764 9.28607 4.30686 9.88268 4.47233C11.3119 3.47921 11.9457 3.68296 11.9457 3.68296C12.3559 4.73967 12.0947 5.5292 12.0202 5.72013C12.505 6.25482 12.7907 6.94232 12.7907 7.78263C12.7907 10.7365 11.0386 11.3857 9.36075 11.5768C9.63424 11.8187 9.87024 12.277 9.87024 13.0028C9.87024 14.034 9.85794 14.8617 9.85794 15.1162C9.85794 15.3199 9.99469 15.562 10.3674 15.4856C13.35 14.4668 15.5 11.5895 15.5 8.19012C15.5123 3.93749 12.1445 0.5 8.00621 0.5Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
+    <div className=" px-4">
+      <footer className="flex max-w-6xl mx-auto justify-between w-full py-16">
+        <div className="flex flex-col sm:flex-row justify-between items-center w-full">
+          <span className="text-on-100 text-center sm:text-left">
+            &copy; {new Date().getFullYear()} Gympal &bull;{' '}
+            <Link href="/privacy">Privacy</Link>
+          </span>
+          <div className="flex flex-col items-center md:flex-row space-y-2 md:space-y-0 md:space-x-5 mt-3 sm:mt-0">
+            <a href="mailto:audun@gympal.com">
+              <button className="bg-white self-start text-black px-3 text-sm flex items-center font-medium py-1 rounded-full">
+                <i className="fa-solid fa-envelope mr-2" /> Contact
+              </button>
             </a>
-          </li>
-          <li>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://twitter.com/family"
-            >
-              <svg
-                width="18"
-                height="19"
-                viewBox="0 0 18 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10.4898 7.62738L17.0515 0H15.4966L9.79908 6.62275L5.24853 0H0L6.88133 10.0148L0 18.0132H1.55499L7.57167 11.0194L12.3774 18.0132H17.6259L10.4894 7.62738H10.4898ZM8.36005 10.103L7.66282 9.10575L2.11527 1.17057H4.50364L8.98058 7.57452L9.6778 8.57176L15.4973 16.8959H13.1089L8.36005 10.1034V10.103Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="mailto:support@family.co">
-              <svg
-                width="16"
-                height="12"
-                viewBox="0 0 16 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0.00300002 1.884L8 5.882L15.997 1.884C15.9674 1.37444 15.7441 0.895488 15.3728 0.545227C15.0016 0.194965 14.5104 -9.35847e-05 14 3.36834e-08H2C1.48958 -9.35847e-05 0.998447 0.194965 0.627178 0.545227C0.255908 0.895488 0.0326041 1.37444 0.00300002 1.884Z"
-                  fill="currentColor"
-                ></path>
-                <path
-                  d="M16 4.118L8 8.118L0 4.118V10C0 10.5304 0.210714 11.0391 0.585786 11.4142C0.960859 11.7893 1.46957 12 2 12H14C14.5304 12 15.0391 11.7893 15.4142 11.4142C15.7893 11.0391 16 10.5304 16 10V4.118Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </footer>
+            <div className="flex flex-wrap space-x-2">
+              {icons.map((x) => (
+                <a
+                  href={x.route}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 text-on-100 hover:text-white rounded-full flex items-center justify-center transition ease-out duration-200 hover:bg-types-150"
+                >
+                  <i className={concat('text-xl ', x.icon)} />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
 }
 
