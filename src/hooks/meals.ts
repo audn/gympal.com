@@ -16,6 +16,7 @@ export interface Size {
   default: boolean;
   primary: boolean;
   sync_entries: boolean;
+  image_url?: string;
   is_public: boolean;
   is_active: boolean;
   createdAt: Date;

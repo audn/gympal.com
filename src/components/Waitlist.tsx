@@ -10,10 +10,9 @@ function Error({ message }: { message: string }) {
 function Waitlist({
   scanned,
   platform,
-  text,
 }: {
   scanned?: boolean;
-  text?: string;
+
   platform?: 'IOS' | 'ANDROID';
 }) {
   const [email, setEmail] = useState<string>('');
@@ -42,29 +41,27 @@ function Waitlist({
   return (
     <>
       <div className="flex flex-col w-full">
-        <form
-          onSubmit={onAttemptJoinWaitlist}
-          className="space-y-3 mt-10 md:w-[400px] items-center"
-        >
+        <form onSubmit={onAttemptJoinWaitlist} className="space-y-4">
           <input
-            className="bg-types-100 h-[44px] outline-none w-full  rounded-xl px-6 py-2"
+            className="w-full rounded-lg bg-[#1A1A1A] px-4 py-3 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-primary-100"
             placeholder="Email"
             type="email"
             value={email}
             onChange={(event) => setEmail(event?.target.value)}
           />
-          <button className="bg-types-fat w-full h-[40px] text-black px-4 text-center justify-center flex items-center font-bold transition-all ease-out duration-200 hover:bg-opacity/50 rounded-xl">
+          <button
+            disabled={isSuccess || isLoading}
+            className="w-full disabled:opacity-50 rounded-lg bg-brand-primary-100 py-3 text-lg font-medium text-black transition-colors hover:bg-brand-primary-100/50 focus:outline-none focus:ring-2 focus:ring-offset-brand-primary-100"
+          >
             {isLoading ? (
               <i className="fa-solid animate-spin fa-spinner-third" />
             ) : isSuccess ? (
-              <div className="flex  items-center">
+              <div className="flex  justify-center items-center">
                 <i className="text-lg mr-2 fa-solid fa-check" />
-                Added{' '}
+                Done{' '}
               </div>
-            ) : text ? (
-              text
             ) : (
-              ' Join Waitlist'
+              'Submit'
             )}
           </button>
         </form>
@@ -72,7 +69,7 @@ function Waitlist({
           <motion.div
             animate="enter"
             exit="exit"
-            className="max-w-3xl mt-4 text-sm "
+            className="max-w-3xl text-center mt-4 text-sm "
             initial="initial"
             variants={{
               initial: { opacity: 0 },
@@ -84,7 +81,7 @@ function Waitlist({
               },
             }}
           >
-            {text ? "We'll be in touch!" : "You're on the list!"}{' '}
+            You'll get an invite link within 12 hours!
             {/* <a
               rel="noopener noreferrer"
               className="border-b-2 border-types-150 pb"

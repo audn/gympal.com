@@ -1,6 +1,6 @@
 function deleteme() {
   return (
-    <main className={'h-full pt-[71px] md:pt-[80px]'}>
+    <main className={'h-full '}>
       <div className="px-6">
         <div className="max-w-6xl mx-auto ">
           <h3 className="text-lg mt-4 text-white/60">

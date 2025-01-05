@@ -3,7 +3,7 @@ function Privacy() {
   const author = 'Audun Hilden';
 
   return (
-    <main className={'h-full pt-[80px] px-6 text-on-100 pb-8'}>
+    <main className={'h-full  px-6 text-on-100 pb-8'}>
       <div className="max-w-6xl mx-auto mt-14">
         <div className="max-w-6xl mx-auto text-xl leading-10 space-y-10">
           <section className="space-y-3">

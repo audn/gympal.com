@@ -1,30 +1,58 @@
+import { motion } from 'framer-motion';
 import concat from '../../../concat';
+
+import { Star } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 function MealSizes() {
   const sizes = ['lower carbs', '+redbull', 'bulking', 'cutting for summer'];
-  return (
-    <div className="px-6 pt-6">
-      <div className="from-[#2C2C2E] bg-gradient-to-b to-[#1C1C1E] -m-6 overflow-hidden justify-end rounded-t-3xl p-5 py-5 relative">
-        <div className="flex flex-wrap gap-2 ">
-          {sizes.map((x, i) => (
-            <button
-              key={x}
-              className={concat(
-                i == 0 ? 'bg-white text-black' : 'bg-[#3A3A3C] text-white',
-                'px-3 py-1 rounded-full  ',
-              )}
-            >
-              {i == 0 ? <i className="fa-solid fa-star" /> : null} {x}
-            </button>
-          ))}
-        </div>
 
-        <div className="mt-6">
-          <h3 className="font-semibold mb-1 mt-2 text-[17px]">Meal Sizes</h3>
-          <p className=" text-[#787880] text-[15px] font-medium">
-            Create diffent variations of your meals, such as bulking or cutting.
-          </p>
-        </div>
+  const [activeIndex, setActiveIndex] = useState(0);
+  // const [direction, setDirection] = useState(1);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => {
+        const newIndex = (prevIndex + 1) % sizes.length;
+        // setDirection(1);
+        return newIndex;
+      });
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [sizes.length]);
+
+  const handleClick = (index: number) => {
+    // setDirection(index > activeIndex ? 1 : -1);
+    setActiveIndex(index);
+  };
+  return (
+    <div className="h-full flex items-center">
+      <div className="flex flex-wrap gap-2 items-center">
+        {sizes.map((x, i) => (
+          <motion.button
+            key={x}
+            className={concat(
+              i == activeIndex
+                ? 'bg-white text-black'
+                : 'bg-[#262626] text-white',
+              'px-3 py-1 gap-2 rounded-full flex items-center overflow-hidden',
+            )}
+            onClick={() => handleClick(i)}
+            layout
+            transition={{
+              duration: 0.3,
+              type: 'spring',
+              // stiffness: 500,
+              // damping: 30,
+            }}
+          >
+            {i === activeIndex ? (
+              <Star fill="currentColor" className="w-4 h-4" />
+            ) : null}{' '}
+            {x}
+          </motion.button>
+        ))}
       </div>
     </div>
   );

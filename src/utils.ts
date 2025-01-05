@@ -13,22 +13,22 @@ export const scaleIn = {
 };
 export const menu = {
   closed: {
-    y: -100,
-    scale: 0.6,
+    translateY: -20,
+    scale: 0.9,
     opacity: 0,
     transition: {
       type: 'spring',
-      duration: 0.3,
+      duration: 0.2,
       // delay: 0.15,
     },
   },
   open: {
     scale: 1,
     opacity: 1,
-    y: 0,
+    translateY: 0,
     transition: {
       type: 'spring',
-      duration: 0.5,
+      duration: 0.2,
       delayChildren: 0.2,
       staggerChildren: 0.05,
     },
