@@ -6,7 +6,7 @@ module.exports = {
     return [
       {
         source: '/ios',
-        destination: 'https://testflight.apple.com/join/XwvjHf7w',
+        destination: 'https://apps.apple.com/no/app/gympal-calorie-counter/id6468906558',
         permanent: true,
       },
       {
