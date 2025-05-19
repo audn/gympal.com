@@ -7,35 +7,41 @@ const features = [
     category: 'Diet',
     items: [
       {
+        id: 'set-daily-macro-goals',
         title: 'Set Daily Macro Goals',
         status: <Available />,
         description:
           'Easily adjust your macros for each day—lower carbs on rest days or increase protein on workout days to match your routine.',
       },
       {
+        id: 'create-meal-sizes',
         title: 'Create Meal Sizes',
         status: <Available />,
         description:
           'Quickly set up and manage meals with varied portions and products.',
       },
       {
+        id: 'custom-serving-sizes',
         title: 'Custom Serving Sizes',
         status: <Available />,
         description: 'Define serving sizes for any global products.',
       },
       {
+        id: 'adjust-meal-calories',
         title: 'Adjust Meal Calories',
         status: <Available />,
         description:
           'Enter your target calories, and the meal adjusts automatically.',
       },
       {
+        id: 'track-body-weight',
         title: 'Track Body Weight',
         status: <NotAvailable />,
         description:
           'Monitor weight changes, capture progress photos, and analyze trends.',
       },
       {
+        id: 'hide-calories',
         title: 'Hide Calories',
         status: <NotAvailable />,
         description:
@@ -43,42 +49,49 @@ const features = [
       },
 
       {
+        id: 'body-metrics',
         title: 'Body Metrics',
         status: <NotAvailable />,
         description: 'Log body measurements and visualize progress over time.',
       },
 
       {
+        id: 'set-a-coach',
         title: 'Set a Coach',
         status: <PlannedFeature />,
         description:
           'Assign a real person as your coach. They can track your progress, provide feedback, and create custom meal plans.',
       },
       {
+        id: 'build-your-own-diet',
         title: 'Build Your Own Diet',
         status: <PlannedFeature />,
         description:
           'Create a diet plan tailored to your needs with a simple, intuitive diet builder.',
       },
       {
+        id: 'dynamic-diet-plans',
         title: 'Dynamic Diet Plans',
         status: <PlannedFeature />,
         description:
           'Gympal learns and adapts to your needs, offering a truly personalized experience.',
       },
       {
+        id: 'hotel-friendly-features',
         title: 'Hotel-Friendly Features',
         status: <PlannedFeature />,
         description:
           'Find nearby hotels with breakfast options, gym details, and other fitness-related amenities to stay on track while traveling.',
       },
       {
+        id: 'restaurant-finder',
         title: 'Restaurant Finder',
         status: <PlannedFeature />,
         description:
           'Locate nearby restaurants and view their menus, complete with detailed macro information.',
       },
       {
+        id: 'macro-filler',
         title: 'Macro Filler',
         status: <PlannedFeature />,
         description:
@@ -90,27 +103,35 @@ const features = [
     category: 'Workouts',
     items: [
       {
+        id: 'workout-tracker',
         title: 'Workout Tracker',
         status: <PlannedFeature />,
         description: 'Log and track your workouts.',
       },
       {
+        id: 'search-all-gyms',
         title: 'Search All Gyms',
         status: <PlannedFeature />,
-        description:
-          'Find local gyms, check their available equipment, and have your exercise program adapt to what’s available.',
+        description: `Find local gyms, check their available equipment, and have your exercise program adapt to what's available.`,
       },
       {
+        id: 'set-an-active-gym-pal',
         title: 'Set an Active Gym Pal',
         status: <PlannedFeature />,
-        description:
-          'Assign one person to track the workout session for a group, and sync the data to everyone’s accounts after.',
+        description: `Assign one person to track the workout session for a group, and sync the data to everyone's accounts after.`,
       },
       {
+        id: 'your-personal-trainer',
         title: 'Your Personal Trainer',
         status: <PlannedFeature />,
         description:
           'Gympal adapts to your unique fitness and workout needs, acting as your personal trainer.',
+      },
+      {
+        id: 'linear-but-for-workouts',
+        title: 'linear but for workouts',
+        status: <PlannedFeature />,
+        description: 'Desktop interface for all in-app features.',
       },
     ],
   },
@@ -142,8 +163,8 @@ function Early() {
       }}
     >
       <NextSeo
-        title="Gympal: Here’s What to Expect"
-        description="Gympal is an early-stage app, and we’re working hard to make it even better for you."
+        title="Gympal: Here's What to Expect"
+        description="Gympal is an early-stage app, and we're working hard to make it even better for you."
       />
 
       <article className="max-w-4xl mx-auto px-4 py-8 md:py-12">
@@ -166,7 +187,7 @@ function Early() {
         </div>
 
         <h1 className="text-4xl md:text-5xl font-medium tracking-tight mb-10">
-          Gympal: Here’s What to Expect
+          Gympal: Here's What to Expect
         </h1>
 
         <section>
@@ -189,7 +210,7 @@ function Early() {
             </strong>
           </p>
           {/* <p>
-          It’s more natural for most people to figure out what to eat on their
+          It's more natural for most people to figure out what to eat on their
             own, whether by trial and error, or reading up on "top 10 best foods
             for {'<insert goal>'}."
             <br /> Others might turn to a personal trainer for tailored advice.
@@ -198,7 +219,7 @@ function Early() {
             your gym equipment, foods you dislike, and previous injuries. But
             why couldn't I tell an app these things instead?{' '}
             <strong>
-              There just weren’t any apps offering that level of customization.
+              There just weren't any apps offering that level of customization.
             </strong>
           </p> */}
           <p>
@@ -208,7 +229,7 @@ function Early() {
             foods I disliked, and previous injuries, but why couldn't I tell an
             app these things instead?{' '}
             <strong>
-              There just weren’t any apps offering that level of customization.
+              There just weren't any apps offering that level of customization.
             </strong>
           </p>
 
@@ -227,10 +248,10 @@ function Early() {
             And then came the leftover calorie problem. If I had 700 kcal left
             on a Saturday, I was unsure of what to eat. If I was only used to
             making the same meals over and over, it felt like game-over for me.
-            Why couldn’t an app just suggest something tailored to my needs?
+            Why couldn't an app just suggest something tailored to my needs?
           </p>
           <p>
-            That’s why I built Gympal—a simple, flexible app that helps you
+            That's why I built Gympal—a simple, flexible app that helps you
             manage your diet, experiment, and discover what works for you.
           </p>
         </section>
@@ -240,7 +261,7 @@ function Early() {
           </h2>
           <p>
             It's important to note that this is just the beginning.
-            <br /> We’re slowly moving towards the vision of Gympal, and each
+            <br /> We're slowly moving towards the vision of Gympal, and each
             update gets us closer to that goal.
           </p>
           <p>
@@ -261,9 +282,14 @@ function Early() {
                   </div>
                 ) : null}
                 <div className="space-y-5">
-                  {items.map(({ title, status, description }) => (
-                    <li key={title}>
-                      <span className="font-medium text-white">{title}</span>{' '}
+                  {items.map(({ id, title, status, description }) => (
+                    <li key={title} id={id} className="scroll-mt-20">
+                      <a
+                        href={`#${id}`}
+                        className="font-medium text-white hover:underline"
+                      >
+                        {title}
+                      </a>{' '}
                       {status}
                       <p className="ml-2">{description}</p>
                     </li>
@@ -279,7 +305,7 @@ function Early() {
           </h2>
           <p>
             Gympal is for anyone who wants more control over their diet. Maybe
-            you’re into fitness, have specific dietary needs, or just want to
+            you're into fitness, have specific dietary needs, or just want to
             try something new.
           </p>
         </section>
@@ -305,7 +331,7 @@ function Early() {
             Building in Public
           </h2>
           <p>
-            Gympal is being built with full transparency. That means I’m sharing
+            Gympal is being built with full transparency. That means I'm sharing
             the process, listening to community feedback, and making changes
             based on what's needed.
           </p>
@@ -315,8 +341,8 @@ function Early() {
             Final Thoughts
           </h2>
           <p>
-            Thanks for being part of Gympal’s journey. This is just the
-            beginning, and I can’t wait to see what we build together.
+            Thanks for being part of Gympal's journey. This is just the
+            beginning, and I can't wait to see what we build together.
           </p>
         </section>
         <footer>
