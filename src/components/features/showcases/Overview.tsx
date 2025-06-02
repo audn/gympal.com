@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { formatDate } from '../../../utils';
+import { formatDate } from '../../../lib/utils';
 
 function Overview() {
   const maxCalories = 2500;

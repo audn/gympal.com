@@ -1,4 +1,4 @@
-import concat from '../concat';
+import concat from '../lib/concat';
 
 const Phone = ({
   source,

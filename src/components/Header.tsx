@@ -1,7 +1,16 @@
+'use client';
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/src/components/ui/dropdown-menu';
+import { Calculator, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import concat from '../concat';
+import concat from '../lib/concat';
 
 export const fadeIn = {
   initial: { opacity: 0 },
@@ -28,6 +37,39 @@ function Header() {
   }, []);
   const router = useRouter();
 
+  const tools = [
+    {
+      name: 'Protein Calculator',
+      href: '/tools/protein-calculator',
+      icon: Calculator,
+      description: 'Calculate daily protein needs',
+    },
+    // {
+    //   name: 'BMI Calculator',
+    //   href: '/tools/bmi-calculator',
+    //   icon: Scale,
+    //   description: 'Body mass index calculator',
+    // },
+    // {
+    //   name: 'Calorie Calculator',
+    //   href: '/tools/calorie-calculator',
+    //   icon: Target,
+    //   description: 'Daily calorie requirements',
+    // },
+    // {
+    //   name: 'Macro Calculator',
+    //   href: '/tools/macro-calculator',
+    //   icon: Utensils,
+    //   description: 'Macronutrient breakdown',
+    // },
+    // {
+    //   name: 'TDEE Calculator',
+    //   href: '/tools/tdee-calculator',
+    //   icon: Activity,
+    //   description: 'Total daily energy expenditure',
+    // },
+  ];
+
   return (
     <header
       className={concat(
@@ -36,11 +78,45 @@ function Header() {
       )}
     >
       <div className="justify-between sm:justify-start h-[71px] md:h-[80px] w-full max-w-6xl mx-auto flex items-center gap-10 relative">
-        <Link href={'/'} className="flex items-center">
-          <button className="flex shrink-0  items-center">
-            <img src="/logo-text-white.svg" className="w-24 mr-2" />
-          </button>
-        </Link>
+        <div className="flex items-center gap-6">
+          <Link href={'/'} className="flex items-center">
+            <button className="flex shrink-0 items-center">
+              <img src="/logo-text-white.svg" className="w-24 mr-2" />
+            </button>
+          </Link>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-2 text-white hover:text-green-400 transition-colors duration-200 text-sm font-medium">
+              Tools
+              <ChevronDown className="w-4 h-4" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              className="bg-types-150 border-types-175 min-w-[280px] p-2"
+              align="start"
+            >
+              {tools.map((tool) => (
+                <DropdownMenuItem key={tool.href} asChild>
+                  <Link href={tool.href}>
+                    <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-types-200 transition-colors duration-200 cursor-pointer">
+                      <div className="flex items-center justify-center w-8 h-8 bg-green-400/20 rounded-lg">
+                        <tool.icon className="w-4 h-4 text-green-400" />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-white font-medium text-sm">
+                          {tool.name}
+                        </span>
+                        <span className="text-on-100 text-xs">
+                          {tool.description}
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+
         {router.pathname !== '/shared/meal/[id]' ? (
           <div className="justify-end w-full flex space-x-2 items-center">
             <div className="mt-1 sm:mt-0 sm:pl-4">

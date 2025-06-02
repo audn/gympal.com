@@ -2,11 +2,16 @@ module.exports = {
   images: {
     domains: ['images.unsplash.com'],
   },
+  // webpack: (config) => {
+  //   config.resolve.alias.canvas = false;
+  //   return config;
+  // },
   async redirects() {
     return [
       {
         source: '/ios',
-        destination: 'https://apps.apple.com/no/app/gympal-calorie-counter/id6468906558',
+        destination:
+          'https://apps.apple.com/no/app/gympal-calorie-counter/id6468906558',
         permanent: true,
       },
       {

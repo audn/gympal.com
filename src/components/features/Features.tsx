@@ -1,5 +1,5 @@
 import React from 'react';
-import concat from '../../concat';
+import concat from '../../lib/concat';
 import CustomSizes from './showcases/CustomSizes';
 import DailyGoals from './showcases/DailyGoals';
 import MealSizes from './showcases/MealSizes';

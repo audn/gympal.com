@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import concat from '../../../concat';
+import concat from '../../../lib/concat';
 
 function Box({
   value,

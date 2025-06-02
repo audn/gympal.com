@@ -19,7 +19,11 @@
     "strict": true,
     "target": "ESNext",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      // "@/*": ["src/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/utils/*": ["./src/lib/utils/"]
     },
     "incremental": true
   },

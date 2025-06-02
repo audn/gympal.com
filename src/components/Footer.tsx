@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import concat from '../concat';
+import concat from '../lib/concat';
 const icons = [
   {
     title: 'Discord',

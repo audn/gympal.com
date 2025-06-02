@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import concat from '../../../concat';
+import concat from '../../../lib/concat';
 
 import { Star } from 'lucide-react';
 import { useEffect, useState } from 'react';
