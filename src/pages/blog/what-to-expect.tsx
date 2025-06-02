@@ -172,7 +172,7 @@ function Early() {
           <time className="text-base">3 Jan, 2025</time>
           <span>by</span>
           <Link
-            href="https://x.com/tweetaudun"
+            href="https://x.com/audunhilden"
             target="_blank"
             rel="noreferrer noopener"
           >
@@ -181,7 +181,7 @@ function Early() {
                 src="https://pbs.twimg.com/profile_images/1569879536581345283/YgoUF5HT_400x400.png"
                 className="w-6 h-6 rounded-full mr-1 inline"
               />
-              audun
+              Audun Hilden
             </button>
           </Link>
         </div>
