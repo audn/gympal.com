@@ -82,18 +82,6 @@ export default function ProteinCalculator() {
     setResult(dailyProtein);
   };
 
-  const getRecommendationText = () => {
-    if (!result) return '';
-
-    if (goal === 'muscle-gain') {
-      return 'For muscle building, distribute across 4-6 meals with 20-30g per meal';
-    } else if (goal === 'weight-loss') {
-      return 'Protein helps maintain muscle mass and keeps you feeling full';
-    } else {
-      return 'This supports muscle maintenance and daily activities';
-    }
-  };
-
   const getGoalButtonColor = (currentGoal: string) => {
     const selectedColor = gender === 'male' ? 'bg-blue-500' : 'bg-pink-500';
     return goal === currentGoal ? selectedColor : 'bg-types-200';

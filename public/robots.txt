@@ -1,6 +1,7 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /treasure/*
 
 # Host
 Host: https://gympal.com
