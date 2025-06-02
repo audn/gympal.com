@@ -24,8 +24,8 @@ export default {
     site_name: 'Gympal',
   },
   twitter: {
-    handle: '@tweetaudun',
-    site: '@tweetaudun',
+    handle: '@gympalcom',
+    site: '@gympalcom',
     cardType: 'summary',
   },
 } as NextSeoProps;

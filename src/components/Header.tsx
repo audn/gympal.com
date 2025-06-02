@@ -25,6 +25,7 @@ export const fadeIn = {
 
 function Header() {
   const [offsetY, setOffsetY] = useState(0);
+  const [open, setOpen] = useState(false);
   const handleScroll = () => {
     if (window.pageYOffset < 600) {
       setOffsetY(window.pageYOffset);
@@ -78,14 +79,14 @@ function Header() {
       )}
     >
       <div className="justify-between sm:justify-start h-[71px] md:h-[80px] w-full max-w-6xl mx-auto flex items-center gap-10 relative">
-        <div className="flex items-center gap-6">
+        <div className="flex items-center sm:gap-6">
           <Link href={'/'} className="flex items-center">
             <button className="flex shrink-0 items-center">
               <img src="/logo-text-white.svg" className="w-24 mr-2" />
             </button>
           </Link>
 
-          <DropdownMenu>
+          <DropdownMenu open={open} onOpenChange={setOpen}>
             <DropdownMenuTrigger className="flex items-center gap-2 text-white hover:text-green-400 transition-colors duration-200 text-sm font-medium">
               Tools
               <ChevronDown className="w-4 h-4" />
@@ -95,8 +96,8 @@ function Header() {
               align="start"
             >
               {tools.map((tool) => (
-                <DropdownMenuItem key={tool.href} asChild>
-                  <Link href={tool.href}>
+                <Link href={tool.href} key={tool.href}>
+                  <DropdownMenuItem asChild onClick={() => setOpen(false)}>
                     <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-types-200 transition-colors duration-200 cursor-pointer">
                       <div className="flex items-center justify-center w-8 h-8 bg-green-400/20 rounded-lg">
                         <tool.icon className="w-4 h-4 text-green-400" />
@@ -110,8 +111,8 @@ function Header() {
                         </span>
                       </div>
                     </div>
-                  </Link>
-                </DropdownMenuItem>
+                  </DropdownMenuItem>
+                </Link>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>

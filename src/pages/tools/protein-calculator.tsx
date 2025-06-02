@@ -17,7 +17,9 @@ import {
   SelectValue,
 } from '@/src/components/ui/select';
 import { cn } from '@/src/lib/utils';
+import { motion } from 'framer-motion';
 import { NextSeo } from 'next-seo';
+import Link from 'next/link';
 import { useState } from 'react';
 
 export default function ProteinCalculator() {
@@ -88,7 +90,31 @@ export default function ProteinCalculator() {
   };
 
   return (
-    <div className="min-h-screen bg-types-50 px-6 text-white">
+    // <div className="min-h-screen bg-types-50 px-6 text-white">
+    <motion.div
+      animate="enter"
+      className="max-w-[48.75rem] mx-auto"
+      exit="exit"
+      initial="initial"
+      variants={{
+        initial: { opacity: 0, y: 30 },
+        enter: {
+          y: 0,
+          opacity: 1,
+          transition: {
+            duration: 1.2,
+            ease: [0.22, 1, 0.36, 1],
+          },
+        },
+        exit: {
+          opacity: 0,
+          transition: {
+            duration: 0.2,
+            ease: [0.4, 0, 0.2, 1],
+          },
+        },
+      }}
+    >
       <NextSeo
         title="Daily Protein Calculator"
         description="Calculate your daily protein needs based on your body weight, age, gender, activity level, and fitness goals."
@@ -340,6 +366,11 @@ export default function ProteinCalculator() {
                     <span>Essential for immune function</span>
                   </div>
                 </div>
+                <Link href="/blog/how-much-protein-per-body-weight">
+                  <button className="mt-4 text-brand-primary-100 hover:underline">
+                    Read more
+                  </button>
+                </Link>
               </div>
             </CardContent>
           </Card>
@@ -352,6 +383,6 @@ export default function ProteinCalculator() {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
